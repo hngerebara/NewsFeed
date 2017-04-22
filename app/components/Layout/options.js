@@ -16,8 +16,6 @@ export default class Options extends React.Component {
     _onLoad (){
         this.setState(SourceStore.getAll());
     }
-
-    
     _onChange(event) {
         let sources = this.state.sources[0];
         let prop = 0;
