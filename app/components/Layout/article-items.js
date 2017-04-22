@@ -3,10 +3,7 @@ let isoDate = require('iso-date');
 
 export default class ArticleItem extends React.Component {
 
-<<<<<<< HEAD
 //list of articles
-=======
->>>>>>> 56e0ca9189f2169c94fe7780e09cde6ec8c79231
     render() {
         let publishedAt = this.props.item.publishedAt;
         let image;
