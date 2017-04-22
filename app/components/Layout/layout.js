@@ -8,6 +8,7 @@ export default class Layout extends React.Component {
     return (
       <div>
   	      <div>
+                <h3>Please select News Source </h3>
               <Options/>
               <NewsPage/>
           </div>

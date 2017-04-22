@@ -14,16 +14,20 @@ export default class ArticleItem extends React.Component {
         }
         if (imageSource !== null && imageSource !== undefined && imageSource !== ''){
             image = [<img key={this.props.item.url}  className="article-image" src={imageSource}
-                          style={{height: '320px', width: '560px'}}/> ]
+                          style={{height: '320px', width: '480px'}}/> ]
         }
         return (
             <article>
                 <div className="col-lg-12">
-                    <h2><a href={this.props.item.url}>{this.props.item.title}</a></h2>
-                    {image}
-                    <h3>Description: {this.props.item.description}</h3>
-                    <h4>Author: {this.props.item.author}</h4>
-                    <h5>Published: {publishedAt}</h5>
+                <h2><a href={this.props.item.url}>{this.props.item.title}</a></h2>
+                    <div className= "col-lg-6">
+                        {image}
+                    </div>
+                    <div className="col-lg-6">
+                        <h3>Description: {this.props.item.description}</h3>
+                        <h4>Author: {this.props.item.author}</h4>
+                        <h5>Published: {publishedAt}</h5>
+                    </div>
                 </div>
 
             </article>
