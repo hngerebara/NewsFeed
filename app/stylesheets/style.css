@@ -1,0 +1,25 @@
+body {
+  background: #edf1e3;
+}
+
+.sources-table{
+  width: 30%;
+}
+
+.article-image{
+  height: 320px;
+  width: 560px;
+}
+
+.news-sources{
+  cursor: pointer;
+}
+
+.container{
+  margin-left: 1px;
+}
+
+.scrollable-menu {
+  height: auto;
+  padding: 4px 17px;
+}
