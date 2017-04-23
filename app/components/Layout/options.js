@@ -13,9 +13,12 @@ export default class Options extends React.Component {
         this.sortBy = undefined;
         this.defaultId = 'cnn';
 	}
+    //sets the state to the current store state having all sources
     _onLoad (){
         this.setState(SourceStore.getAll());
     }
+
+
     _onChange(event) {
         let sources = this.state.sources[0];
         let prop = 0;
@@ -34,15 +37,18 @@ export default class Options extends React.Component {
         }
 
     }
-
+    
+    //For it to mount, it should call the NewsAPI.getsources() which retrieves data from the api
    componentWillMount(){
        NewsAPI.getNewsSources();
    }
 
+   //Load the sources now available in the source store
    componentDidMount () {
        SourceStore.addChangeListener(this._onLoad);
        NewsAPI.getNewsArticle(this.defaultId,  this.sortBy);
    }
+   //Take off the state when done
    componentWillUnmount (){
          SourceStore.removeChangeListener(this._onLoad);
    }
