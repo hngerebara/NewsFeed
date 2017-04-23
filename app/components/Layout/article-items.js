@@ -20,7 +20,7 @@ export default class ArticleItem extends React.Component {
         return (
             <article>
                 <div className="col-lg-12">
-                <h2><a href={this.props.item.url}>{this.props.item.title}</a></h2>
+                <h2><a href={this.props.item.url} target = "_blank">{this.props.item.title}</a></h2>
                     <div className= "col-lg-6">
                         {image}
                     </div>
