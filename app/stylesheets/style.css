@@ -28,3 +28,8 @@ body {
     background: #fff no-repeat 25px;
     background-size: 25px;
 }
+
+/* sorting css*/
+.news-articles{
+  cursor: pointer;
+}

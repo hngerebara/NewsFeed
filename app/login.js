@@ -7,7 +7,10 @@ var provider = new firebase.auth.GoogleAuthProvider();
 export default class Login extends React.Component {
 constructor() {
   super()
-  this.state = {loggedIn: false}
+  this.state = {
+    loggedIn: false,
+    user:  {}
+}
   this.whichWindowToShow = this.whichWindowToShow.bind(this);
   this.googleLogin = this.googleLogin.bind(this);
 }
@@ -86,7 +89,8 @@ constructor() {
 
       //Login the user if no errors found
       this.setState({
-        loggedIn: true
+        loggedIn: true,
+        user: user
       });
 
 
@@ -119,7 +123,7 @@ constructor() {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main />
+          <Main user={this.state.user} />
         </div>
       );
     }
