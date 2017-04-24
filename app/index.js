@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './login'
-import Layout from './components/Layout/layout.js';
-import Header from "./components/Layout/header";
-import Footer from "./components/Layout/footer";
+
 import './stylesheets/style.css'
 
 

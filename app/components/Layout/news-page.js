@@ -2,7 +2,8 @@ import React from 'react';
 import NewsStore from '../../stores/NewsStore';
 import NewsActions from '../../actions/NewsActions';
 import ArticleItem from './article-items.js'
-import NewsAPI from "../../utils/NewsAPI";
+import NewsAPI from '../../utils/NewsAPI';
+
 
 export default class NewsPage extends React.Component {
 
@@ -42,6 +43,7 @@ export default class NewsPage extends React.Component {
 
         return (
             <div className="col-lg-12">
+                
                 <div style={{display :'inline-block', width:'100%'}}>
                     {rows}
                 </div>
