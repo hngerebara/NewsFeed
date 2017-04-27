@@ -7,6 +7,7 @@ export function getNewsSources(){
     request.get('https://newsapi.org/v1/sources')
       .set({Accept : 'application/json', lang: 'en'})
       .end((err, response) => {
+          console.log("soruce respone",response)
         if (err) console.error(err);
         if(response) NewsActions.getNewsSources(response.body);
       });

@@ -1,5 +1,5 @@
 
-import AppDispatcher from '../dispatcher/AppDispatcher.js';
+import AppDispatcher from '..//dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants.js';
 
 
@@ -18,6 +18,14 @@ export default {
          actionType: NewsConstants.GET_NEWS_ARTICLE,
           response
       });
-    }
+    },
+  
+  sourceFilter(response) {
+    console.log('actions working');
+    AppDispatcher.dispatch({
+      actionType: NewsConstants.SOURCE_FILTER,
+      response
+    });
+  },
 
 };

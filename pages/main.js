@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from './layout.js';
-import Header from "./header";
-import Footer from "./footer";
+import Layout from '../app/components/layout';
+import Header from "../app/components/header";
+import Footer from "../app/components/footer";
 
 export default class Main extends React.Component {
 

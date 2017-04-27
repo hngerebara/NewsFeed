@@ -1,12 +1,13 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import NewsConstants from '../constants/NewsConstants';
 import ObjectAssign from 'object-assign';
 import {EventEmitter} from 'events';
-import EventConstants from "../constants/EventConstants";
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import NewsConstants from '../constants/NewsConstants';
+import EventConstants from '../constants/EventConstants';
 
 // Define the Source store as an empty array
 const _sources = {
-  list: []
+  list: [],
+  filterlist: []
 };
 
 // Define the public event listeners and getters that
@@ -16,6 +17,7 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   addChangeListener(cb) {
     this.on(EventConstants.CHANGE_EVENT, cb);
+    this.on(EventConstants.FILTER_CHANGE_EVENT, cb);
   },
 
   addClickListener(cb){
@@ -28,12 +30,17 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   removeChangeListener(cb) {
     this.removeListener(EventConstants.CHANGE_EVENT, cb);
+    this.removeListener(EventConstants.FILTER_CHANGE_EVENT, cb);
   },
 
   //method to return all Sources
   getAll(){
     console.log('this is getAll ',_sources.list)
        return _sources.list;
+  },
+  getFilter(){
+    console.log('this is getAll ',_sources.filterList)
+       return _sources.filterList;
   }
 });
 
@@ -50,6 +57,19 @@ AppDispatcher.register(payload => {
             SourceStore.emit(EventConstants.CHANGE_EVENT);
             break;
 
+        case NewsConstants.SOURCE_FILTER:
+          console.log('Source Filter inside store');
+          const query = payload.action.response;
+          _sources.filterlist = _sources.list.filter((source) => {
+            console.log(source);
+            if (source.name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+              console.log("this is the filtered list",_sources.filterlist);
+              return source;
+            }
+          });
+            SourceStore.emit(EventConstants.FILTER_CHANGE_EVENT);
+            break;
+            
         default:
             return true;
     }
