@@ -29,9 +29,9 @@ export default class ArticleItem extends React.Component {
                         <h4>Author: {this.props.item.author}</h4>
                         <h5>Published: {publishedAt}</h5>
                     </div>
-                     <button type="button"
+                     {/*<button type="button"
                         className="btn btn-info btn-lg" data-toggle="modal"
-                        data-target="#myModal">Open Modal</button>
+                        data-target="#myModal">Open Modal</button>*/}
                 </div>
 
             </article>

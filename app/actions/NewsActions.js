@@ -1,4 +1,3 @@
-
 import AppDispatcher from '..//dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants.js';
 
@@ -20,10 +19,10 @@ export default {
       });
     },
   
-  sourceFilter(response) {
-    console.log('actions working');
-    AppDispatcher.dispatch({
-      actionType: NewsConstants.SOURCE_FILTER,
+  articleSort(response) {
+    console.log('articles sort filter');
+    AppDispatcher.handleViewAction({
+      actionType: NewsConstants.ARTICLES_SORT,
       response
     });
   },

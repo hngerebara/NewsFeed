@@ -8,8 +8,8 @@ export default class Layout extends React.Component {
     return (
       <div>
   	      <div className="row">
-              <Sources/>
-              <Articles/>
+              <Sources />
+              
           </div>
       </div>
     );

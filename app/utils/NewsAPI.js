@@ -13,13 +13,13 @@ export function getNewsSources(){
       });
 }
 
-export function getNewsArticle(source, sortBy) {
+export function getNewsArticle(source) {
     request.get('https://newsapi.org/v1/articles')
         .set('X-Api-Key', apikey.apikey)
-        .query({source: source, sortBy: sortBy})
+        .query({source: source})
         .end((err, response) => {
             if (err) console.error(err);
-            if(response) NewsActions.getNewsArticles(response.body)
+            if(response) NewsActions.getNewsArticles(response.body);
+            console.log(response.body,"response from newsarticle")
         });
 }
-
