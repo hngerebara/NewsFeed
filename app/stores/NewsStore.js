@@ -31,8 +31,9 @@ const NewsStore = ObjectAssign( {}, EventEmitter.prototype, {
   },
 
   getAll(){
-    console.log("get all",_articles.list)
+    console.log("I am here",_articles.list)
     return _articles.list;
+    
   }
 });
 

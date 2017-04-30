@@ -20,7 +20,6 @@ export default {
     },
   
   articleSort(response) {
-    console.log('articles sort filter');
     AppDispatcher.handleViewAction({
       actionType: NewsConstants.ARTICLES_SORT,
       response

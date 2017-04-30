@@ -7,19 +7,27 @@ export function getNewsSources(){
     request.get('https://newsapi.org/v1/sources')
       .set({Accept : 'application/json', lang: 'en'})
       .end((err, response) => {
-          console.log("soruce respone",response)
         if (err) console.error(err);
         if(response) NewsActions.getNewsSources(response.body);
       });
 }
 
+
 export function getNewsArticle(source) {
-    request.get('https://newsapi.org/v1/articles')
-        .set('X-Api-Key', apikey.apikey)
+    request.get('https://newsapi.org/v1/articles?')
         .query({source: source})
+        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
         .end((err, response) => {
             if (err) console.error(err);
             if(response) NewsActions.getNewsArticles(response.body);
-            console.log(response.body,"response from newsarticle")
+        });
+}
+export function getSort(sortBy) {
+    request.get('https://newsapi.org/v1/articles?')
+        .query({source: source})
+        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
+        .end((err, response) => {
+            if (err) console.error(err);
+            if(response) NewsActions.getNewsArticles(response.body);
         });
 }
