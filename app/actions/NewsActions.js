@@ -1,5 +1,4 @@
-
-import AppDispatcher from '../dispatcher/AppDispatcher.js';
+import AppDispatcher from '..//dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants.js';
 
 
@@ -18,6 +17,13 @@ export default {
          actionType: NewsConstants.GET_NEWS_ARTICLE,
           response
       });
-    }
+    },
+  
+  articleSort(response) {
+    AppDispatcher.handleViewAction({
+      actionType: NewsConstants.ARTICLES_SORT,
+      response
+    });
+  },
 
 };

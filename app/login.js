@@ -5,12 +5,15 @@ import Main from './components/Layout/main';
 var provider = new firebase.auth.GoogleAuthProvider();
 
 export default class Login extends React.Component {
-constructor() {
-  super()
-  this.state = {loggedIn: false}
-  this.whichWindowToShow = this.whichWindowToShow.bind(this);
-  this.googleLogin = this.googleLogin.bind(this);
-}
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      user: {}
+    }
+    this.whichWindowToShow = this.whichWindowToShow.bind(this);
+    this.googleLogin = this.googleLogin.bind(this);
+  }
 
   // Fire base Initialization
   firebaseInit() {
@@ -26,9 +29,9 @@ constructor() {
     firebase.initializeApp(config);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.firebaseInit();
- }
+  }
 
 
 
@@ -63,7 +66,7 @@ constructor() {
         token = user.token;
       }
       //To get user provider
-      
+
 
       if (user != null) {
         user.providerData.forEach(function (profile) {
@@ -86,7 +89,8 @@ constructor() {
 
       //Login the user if no errors found
       this.setState({
-        loggedIn: true
+        loggedIn: true,
+        user: user
       });
 
 
@@ -107,34 +111,34 @@ constructor() {
   }
 
   whichWindowToShow() {
-    console.log(this.state.loggedIn, 'loggedin?')
-    // if (this.state.loggedIn === 'unknown') {
-    //   return (
-    //     <div>
-    //       <h1> Cannot find your details on google </h1>
-    //     </div>
-    //   );
-    // }
-    // else 
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main />
+          <Main user={this.state.user} />
         </div>
       );
     }
     else {
       return (
-        <div>
-          <button onClick={this.googleLogin} id="google" > Login With Google </button>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-offset-5 col-md-3">
+              <div className="form-login">
+                <h4>Welcome to Hopez News Feed Application</h4>
+                <div className="wrapper">
+                  <span className="group-btn">
+                    <button className="btn btn-primary btn-md fa fa-sign-in" onClick={this.googleLogin}> Login With Google</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
   }
 
-
   render() {
-    let logoutButton = <button>Log Out</button>
     return (
       <div>
         {this.whichWindowToShow()}

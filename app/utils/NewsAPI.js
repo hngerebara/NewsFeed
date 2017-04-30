@@ -12,13 +12,22 @@ export function getNewsSources(){
       });
 }
 
-export function getNewsArticle(source, sortBy) {
-    request.get('https://newsapi.org/v1/articles')
-        .set('X-Api-Key', apikey.apikey)
-        .query({source: source, sortBy: sortBy})
+
+export function getNewsArticle(source) {
+    request.get('https://newsapi.org/v1/articles?')
+        .query({source: source})
+        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
         .end((err, response) => {
             if (err) console.error(err);
-            if(response) NewsActions.getNewsArticles(response.body)
+            if(response) NewsActions.getNewsArticles(response.body);
         });
 }
-
+export function getSort(sortBy) {
+    request.get('https://newsapi.org/v1/articles?')
+        .query({source: source})
+        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
+        .end((err, response) => {
+            if (err) console.error(err);
+            if(response) NewsActions.getNewsArticles(response.body);
+        });
+}

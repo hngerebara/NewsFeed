@@ -1,5 +1,5 @@
 import React from 'react';
-import * as NewsAPI from "../../utils/NewsAPI";
+import * as NewsAPI from '../utils/NewsAPI';
 
 export default class SourceItem extends React.Component {
     render() {
