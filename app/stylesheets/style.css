@@ -34,5 +34,10 @@ body {
   cursor: pointer;
 }
 
+.Demo__some-network {
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+}
 
 
