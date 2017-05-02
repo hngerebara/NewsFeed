@@ -45,14 +45,14 @@ AppDispatcher.register(payload => {
             SourceStore.emit(EventConstants.CHANGE_EVENT);
             break;
 
-        case NewsConstants.SOURCE_FILTER:
-          const query = payload.action.response;
-          _sources.filterlist = _sources.list.filter((source) => {
-            if (source.name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-              return source;
-            }
-          });
-            SourceStore.emit(EventConstants.FILTER_CHANGE_EVENT);
+        // // case NewsConstants.SOURCE_FILTER:
+        // //   const query = payload.action.response;
+        // //   _sources.filterlist = _sources.list.filter((source) => {
+        // //     if (source.name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+        // //       return source;
+        // //     }
+        // //   });
+        //     SourceStore.emit(EventConstants.FILTER_CHANGE_EVENT);
             break;
             
         default:
