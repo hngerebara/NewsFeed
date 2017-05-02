@@ -1,7 +1,7 @@
 import NewsConstants from '../constants/NewsConstants';
 import ObjectAssign from 'object-assign';
 import {EventEmitter} from 'events';
-import EventConstants from '../constants/EventConstants.js'
+import EventConstants from '../constants/EventConstants.js';
 import AppDispatcher from "../dispatcher/AppDispatcher.js";
 
 // Define the Articles store as an empty array
@@ -9,9 +9,7 @@ const _articles = {
   list: [], source: '', sortBy: ''
 };
 
-// Define the public event listeners and getters that
-// the views will use to listen for changes and retrieve
-// the store
+
 const NewsStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   addChangeListener(cb) {
@@ -31,16 +29,12 @@ const NewsStore = ObjectAssign( {}, EventEmitter.prototype, {
   },
 
   getAll(){
-    console.log("I am here",_articles.list)
     return _articles.list;
     
   }
 });
 
 
-// Register each of the actions with the dispatcher
-// by changing the store's data and emitting a
-// change
 AppDispatcher.register(payload => {
     const action = payload.action;
 

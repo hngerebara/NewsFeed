@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 //import Login from './login'
 import Main from '../pages/main';
 import SetUp from '../pages/setUp';
 import './stylesheets/style.css';
+
 
 
 // ReactDOM.render(
@@ -15,19 +16,17 @@ import './stylesheets/style.css';
 // ReactDOM.render( <
 //     Login />, document.getElementById('app')
 // );
-// ReactDOM.render(
-//     <Router>
-//      <Route path="/" component={Main} history={browserHistory}>
-//     <IndexRoute component={Home} />
-//         <Route path="/setUp" component={SetUp}/>
-//         </Route>
-//     </Router>,
-//     document.getElementById('app')
-// );
-
-ReactDOM.render( <
-    Main />, document.getElementById('app')
+ReactDOM.render(
+    <Router history={hashHistory}>
+     <Route path="/" component={Main} />
+     <Route path="/setUp" component={SetUp}/>
+    </Router>,
+    document.getElementById('app')
 );
+
+// ReactDOM.render( <
+//     Main />, document.getElementById('app')
+// );
 
 
 // ReactDOM.render(

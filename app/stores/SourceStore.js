@@ -10,16 +10,7 @@ const _sources = {
   filterlist: []
 };
 
-// Define the public event listeners and getters that
-// the views will use to listen for changes and retrieve
-// the store
 const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
-//   getDefaultProps(props=undefined){
-//       if (props === undefined){
-//           return {defaultId: 'cnn', sortBy: 'top', sortBys: ['top']}
-//       }
-//      return props;
-//   },
 
   addChangeListener(cb) {
     this.on(EventConstants.CHANGE_EVENT, cb);
@@ -45,10 +36,6 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
   },
 });
 
-
-// // Register each of the actions with the dispatcher
-// // by changing the store's data and emitting a
-// // change
 AppDispatcher.register(payload => {
     const action = payload.action;
     switch (action.actionType){
@@ -59,12 +46,9 @@ AppDispatcher.register(payload => {
             break;
 
         case NewsConstants.SOURCE_FILTER:
-          console.log('Source Filter inside store');
           const query = payload.action.response;
           _sources.filterlist = _sources.list.filter((source) => {
-            console.log(source);
             if (source.name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-              console.log("this is the filtered list",_sources.filterlist);
               return source;
             }
           });

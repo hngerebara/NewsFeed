@@ -1,4 +1,5 @@
 import React from 'react';
+import Share from '../utils/share';
 let isoDate = require('iso-date');
 
 export default class ArticleItem extends React.Component {
@@ -28,7 +29,9 @@ export default class ArticleItem extends React.Component {
                         <h3>{this.props.item.description}</h3>
                         <h4>Author: {this.props.item.author}</h4>
                         <h5>Published: {publishedAt}</h5>
+                        <Share share={`${this.props.item.url}`}  title= {`${this.props.item.title}`} />
                     </div>
+                    
                      {/*<button type="button"
                         className="btn btn-info btn-lg" data-toggle="modal"
                         data-target="#myModal">Open Modal</button>*/}
