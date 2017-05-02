@@ -2,6 +2,7 @@ import React from 'react';
 import Share from '../utils/share';
 let isoDate = require('iso-date');
 
+//fix statelss classes
 export default class ArticleItem extends React.Component {
 
 //list of articles

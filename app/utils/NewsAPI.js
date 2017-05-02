@@ -13,18 +13,8 @@ export function getNewsSources(){
 }
 
 
-export function getNewsArticle(source) {
+export function getNewsArticle(source, sortBy) {
     request.get('https://newsapi.org/v1/articles?q={source}')
-        .query({source: source})
-        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
-        .end((err, response) => {
-            if (err) console.error(err);
-            if(response) NewsActions.getNewsArticles(response.body);
-        });
-}
-export function getSort(source, sortBy) {
-    console.log("hhhjdhjhdssh",sortBy)
-    request.get('https://newsapi.org/v1/articles?')
         .query({source: source, sortBy: sortBy})
         .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
         .end((err, response) => {
@@ -32,3 +22,4 @@ export function getSort(source, sortBy) {
             if(response) NewsActions.getNewsArticles(response.body);
         });
 }
+

@@ -1,6 +1,6 @@
 import React from 'react';
-import * as NewsAPI from '../utils/NewsAPI';
 
+//fix stateless classes
 export default class SourceItem extends React.Component {
     render() {
         return (<option className="dropdown-header new-sources"
@@ -9,3 +9,4 @@ export default class SourceItem extends React.Component {
                </option>)
     }
 }
+ 
