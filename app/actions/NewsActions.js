@@ -17,13 +17,5 @@ export default {
          actionType: NewsConstants.GET_NEWS_ARTICLE,
           response
       });
-    },
-  
-  articleSort(response) {
-    AppDispatcher.handleViewAction({
-      actionType: NewsConstants.ARTICLES_SORT,
-      response
-    });
-  },
-
+  }
 };

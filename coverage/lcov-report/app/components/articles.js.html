@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.93% </span>
+        <span class="strong">40% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/29</span>
+        <span class='fraction'>8/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>2/6</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">27.27% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/11</span>
+        <span class='fraction'>3/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.93% </span>
+        <span class="strong">40% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/29</span>
+        <span class='fraction'>8/20</span>
       </div>
     </div>
   </div>
@@ -113,16 +113,8 @@
 68
 69
 70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+71</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,10 +124,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,9 +139,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,15 +147,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,18 +166,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,17 +186,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import ArticleItem from './article-items.js';
 import NewsStore from '../stores/NewsStore';
+import SourceStore from '../stores/SourceStore';
 import NewsActions from '../actions/NewsActions';
-import NewsAPI from '../utils/NewsAPI';
+import * as NewsAPI from '../utils/NewsAPI';
 &nbsp;
 export default class Articles extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.sortParams,"params")
-        console.log("porp",props)
-        this.state = { articles: NewsStore.getAll() };
+        this.state = { 
+            articles: NewsStore.getAll(),
+            sources: SourceStore.getAll()
+        };
         this.articlesLoad = this.articlesLoad.bind(this);
-&nbsp;
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    ar</span>ticlesLoad() {
@@ -223,7 +206,6 @@ export default class Articles extends React.Component {
 &nbsp;
     componentWillMount() {
         NewsStore.addChangeListener(this.articlesLoad);
-&nbsp;
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    co</span>mponentWillUnmount() {
@@ -231,22 +213,18 @@ export default class Articles extends React.Component {
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    sh</span>ouldComponentUpdate(nextProps, nextState) {
-    
 <span class="cstat-no" title="statement not covered" >        this.setState({ articles: NewsStore.getAll() });</span>
 <span class="cstat-no" title="statement not covered" >        return true;</span>
     }
-<span class="fstat-no" title="function not covered" >    on</span>Sort(event) {
-<span class="cstat-no" title="statement not covered" >        console.log("getting here");</span>
+    
+<span class="fstat-no" title="function not covered" >     on</span>Sort(event) {
         let sources = <span class="cstat-no" title="statement not covered" >this.state.sources[0];</span>
-        let prop = <span class="cstat-no" title="statement not covered" >0;</span>
-<span class="cstat-no" title="statement not covered" >        for (; prop &lt; sources.length; prop++) {</span>
-<span class="cstat-no" title="statement not covered" >            if (sources[prop].sortBysAvailable === event.target.value) {</span>
-<span class="cstat-no" title="statement not covered" >                this.setState({ sortBysAvailable: sources[prop].sortBysAvailable })</span>
-<span class="cstat-no" title="statement not covered" >                this.sortBysAvailable = sources[prop].sortBysAvailable;</span>
-<span class="cstat-no" title="statement not covered" >                NewsAPI.getSort(this.sortBysAvailable)</span>
-            }
-        }
+<span class="cstat-no" title="statement not covered" >        event.preventDefault();</span>
+        const value = <span class="cstat-no" title="statement not covered" >event.target.value;</span>
+<span class="cstat-no" title="statement not covered" >        NewsAPI.getSort(value)</span>
+<span class="cstat-no" title="statement not covered" >        console.log('sort value', value)</span>
     }
+     
 &nbsp;
 &nbsp;
     render() {
@@ -258,20 +236,15 @@ export default class Articles extends React.Component {
 <span class="cstat-no" title="statement not covered" >                rows.push(&lt;ArticleItem key={index} index={index} item={item} /&gt;);</span>
             });
         }
-        <span class="missing-if-branch" title="if path not taken" >I</span>if(this.state.sortBysAvailable){
-<span class="cstat-no" title="statement not covered" >            this.state.sortBysAvailable.map(<span class="fstat-no" title="function not covered" >fu</span>nction (sortitem, sortindex) {</span>
-<span class="cstat-no" title="statement not covered" >                sortBysAvailable.push(&lt;SortItem key={sortindex} value={sorttem} name={sortitem} onSortChange={this.onSort.bind}/&gt;)</span>
-            })
-        }
-&nbsp;
+     
         return (
             &lt;div&gt;
              &lt;select 
-                className="col-lg-3"&gt;
+                className="col-lg-3"
                 defaultValue={this.props.sortParams}
-                onChange={<span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; <span class="cstat-no" title="statement not covered" >this.props._onChange(event)}</span>&gt;
+                onChange={this.onSort.bind(this)}&gt;
                 {this.props.sortParams.map( <span class="fstat-no" title="function not covered" >pa</span>ram =&gt; <span class="cstat-no" title="statement not covered" >&lt;option&gt;{param}&lt;/option&gt;)</span>}
-                &lt;/select&gt;
+            &lt;/select&gt;
                 &lt;div style={{ display: 'inline-block', width: '100%' }}&gt;
                     {rows}
                 &lt;/div&gt;
@@ -286,7 +259,7 @@ export default class Articles extends React.Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 01 2017 14:45:21 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 02 2017 15:11:34 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

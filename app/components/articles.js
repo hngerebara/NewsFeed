@@ -1,17 +1,18 @@
 import React from 'react';
 import ArticleItem from './article-items.js';
 import NewsStore from '../stores/NewsStore';
+import SourceStore from '../stores/SourceStore';
 import NewsActions from '../actions/NewsActions';
-import NewsAPI from '../utils/NewsAPI';
+import * as NewsAPI from '../utils/NewsAPI';
 
 export default class Articles extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.sortParams,"params")
-        console.log("porp",props)
-        this.state = { articles: NewsStore.getAll() };
+        this.state = { 
+            articles: NewsStore.getAll(),
+            sources: SourceStore.getAll()
+        };
         this.articlesLoad = this.articlesLoad.bind(this);
-
     }
 
     articlesLoad() {
@@ -20,7 +21,6 @@ export default class Articles extends React.Component {
 
     componentWillMount() {
         NewsStore.addChangeListener(this.articlesLoad);
-
     }
 
     componentWillUnmount() {
@@ -28,22 +28,18 @@ export default class Articles extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-    
         this.setState({ articles: NewsStore.getAll() });
         return true;
     }
-    onSort(event) {
-        console.log("getting here");
-        let sources = this.state.sources[0];
-        let prop = 0;
-        for (; prop < sources.length; prop++) {
-            if (sources[prop].sortBysAvailable === event.target.value) {
-                this.setState({ sortBysAvailable: sources[prop].sortBysAvailable })
-                this.sortBysAvailable = sources[prop].sortBysAvailable;
-                NewsAPI.getSort(this.sortBysAvailable)
-            }
-        }
+    
+     onSort(event) {
+        event.preventDefault();
+        const source= this.props.source
+        const value = event.target.value;
+        NewsAPI.getSort(source, value)
+        console.log(source , value)
     }
+     
 
 
     render() {
@@ -55,20 +51,15 @@ export default class Articles extends React.Component {
                 rows.push(<ArticleItem key={index} index={index} item={item} />);
             });
         }
-        if(this.state.sortBysAvailable){
-            this.state.sortBysAvailable.map(function (sortitem, sortindex) {
-                sortBysAvailable.push(<SortItem key={sortindex} value={sorttem} name={sortitem} onSortChange={this.onSort.bind}/>)
-            })
-        }
-
+     
         return (
             <div>
              <select 
-                className="col-lg-3">
+                className="col-lg-3"
                 defaultValue={this.props.sortParams}
-                onChange={(event) => this.props._onChange(event)}>
+                onChange={this.onSort.bind(this)}>
                 {this.props.sortParams.map( param => <option>{param}</option>)}
-                </select>
+            </select>
                 <div style={{ display: 'inline-block', width: '100%' }}>
                     {rows}
                 </div>

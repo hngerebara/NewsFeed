@@ -4,8 +4,6 @@ import SourceStore from '../stores/SourceStore';
 import SourceItem from './source-items';
 import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
-import SortItem from '../components/sort-items';
-
 import Articles from '../components/articles';
 
 export default class Sources extends React.Component {
@@ -13,12 +11,10 @@ export default class Sources extends React.Component {
         super(props);
         this.state = {
             sources: SourceStore.getAll(),
-            sourceId: props.id,
             sortBysAvailable: []
         };
         this._onLoad = this._onLoad.bind(this);
         this._onChange = this._onChange.bind(this);
-        //this.onSort = this.onSort(this);
         this.OnFilterChange = this.OnFilterChange.bind(this);
         //this.sortBy = undefined;
         this.defaultId = 'cnn';
@@ -42,22 +38,20 @@ export default class Sources extends React.Component {
     }
 
     _onChange(event) {
+        const that =this;
         let sources = this.state.sources[0];
-        console.log("this is valable",this.state.sources[0].body)
         let prop = 0;
         for (; prop < sources.length; prop++) {
             if (sources[prop].id === event.target.value) {
-                this.sourceId = sources[prop].id; 
+                that.setState({sourceId: sources[prop].id})
+                console.log(that.state.sourceId)
                 this.setState({ sortBysAvailable: sources[prop].sortBysAvailable })
                 this.sortBysAvailable = sources[prop].sortBysAvailable;
-                NewsAPI.getNewsArticle(this.sourceId, this.sortBysAvailable)
+                NewsAPI.getNewsArticle(that.state.sourceId, this.sortBysAvailable)
             }
         }
 
     }
-
-    
-
 
     OnFilterChange(event) {
         const allSources = this.state.sources[0];
@@ -91,6 +85,7 @@ export default class Sources extends React.Component {
                     onclick={change} />)
             });
         }
+        console.log(this.state.sourceId, 'test')
 
         return (
             <div className="col-lg-12">
@@ -105,7 +100,7 @@ export default class Sources extends React.Component {
                     </div>
                 </div>
                 <div className="col-lg-10">
-                    <Articles sortParams={this.state.sortBysAvailable} />
+                    <Articles source={this.state.sourceId} sortParams={this.state.sortBysAvailable} />
                 </div>
             </div>
         );

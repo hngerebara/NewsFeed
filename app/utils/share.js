@@ -12,7 +12,6 @@ const LinkedinIcon = generateShareIcon('linkedin');
 class Share extends Component {
     constructor(props){
         super(props)
-        console.log(this.props)
     }
   render() {
     const shareUrl = this.props.share;

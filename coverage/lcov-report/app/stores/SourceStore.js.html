@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">22.22% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/27</span>
+        <span class='fraction'>6/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.08% </span>
+        <span class="strong">26.09% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/26</span>
+        <span class='fraction'>6/23</span>
       </div>
     </div>
   </div>
@@ -107,48 +107,23 @@
 62
 63
 64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+65</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,15 +141,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,9 +155,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -215,16 +183,7 @@ const _sources = {
   filterlist: []
 };
 &nbsp;
-// Define the public event listeners and getters that
-// the views will use to listen for changes and retrieve
-// the store
 const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
-//   getDefaultProps(props=undefined){
-//       if (props === undefined){
-//           return {defaultId: 'cnn', sortBy: 'top', sortBys: ['top']}
-//       }
-//      return props;
-//   },
 &nbsp;
   addChangeListener(cb) {
     this.on(EventConstants.CHANGE_EVENT, cb);
@@ -250,10 +209,6 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
   },
 });
 &nbsp;
-&nbsp;
-// // Register each of the actions with the dispatcher
-// // by changing the store's data and emitting a
-// // change
 AppDispatcher.register(<span class="fstat-no" title="function not covered" >pa</span>yload =&gt; {
     const action = <span class="cstat-no" title="statement not covered" >payload.action;</span>
 <span class="cstat-no" title="statement not covered" >    switch (action.actionType){</span>
@@ -264,12 +219,9 @@ AppDispatcher.register(<span class="fstat-no" title="function not covered" >pa</
 <span class="cstat-no" title="statement not covered" >            break;</span>
 &nbsp;
         case NewsConstants.SOURCE_FILTER:
-<span class="cstat-no" title="statement not covered" >          console.log('Source Filter inside store');</span>
           const query = <span class="cstat-no" title="statement not covered" >payload.action.response;</span>
 <span class="cstat-no" title="statement not covered" >          _sources.filterlist = _sources.list.filter(<span class="fstat-no" title="function not covered" >(s</span>ource) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            console.log(source);</span>
 <span class="cstat-no" title="statement not covered" >            if (source.name.toLowerCase().indexOf(query.toLowerCase()) &gt; -1) {</span>
-<span class="cstat-no" title="statement not covered" >              console.log("this is the filtered list",_sources.filterlist);</span>
 <span class="cstat-no" title="statement not covered" >              return source;</span>
             }
           });
@@ -289,7 +241,7 @@ export default SourceStore;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 01 2017 14:45:21 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 02 2017 15:11:34 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

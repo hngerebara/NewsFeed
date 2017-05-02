@@ -152,13 +152,7 @@
 107
 108
 109
-110
-111
-112
-113
-114
-115
-116</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+110</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,29 +162,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,9 +202,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,17 +230,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,8 +267,6 @@ import SourceStore from '../stores/SourceStore';
 import SourceItem from './source-items';
 import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
-import SortItem from '../components/sort-items';
-&nbsp;
 import Articles from '../components/articles';
 &nbsp;
 export default class Sources extends React.Component {
@@ -293,7 +279,6 @@ export default class Sources extends React.Component {
         };
         this._onLoad = this._onLoad.bind(this);
         this._onChange = this._onChange.bind(this);
-        //this.onSort = this.onSort(this);
         this.OnFilterChange = this.OnFilterChange.bind(this);
         //this.sortBy = undefined;
         this.defaultId = 'cnn';
@@ -318,11 +303,11 @@ export default class Sources extends React.Component {
 &nbsp;
 <span class="fstat-no" title="function not covered" >    _o</span>nChange(event) {
         let sources = <span class="cstat-no" title="statement not covered" >this.state.sources[0];</span>
-<span class="cstat-no" title="statement not covered" >        console.log("this is valable",this.state.sources[0].body)</span>
         let prop = <span class="cstat-no" title="statement not covered" >0;</span>
 <span class="cstat-no" title="statement not covered" >        for (; prop &lt; sources.length; prop++) {</span>
 <span class="cstat-no" title="statement not covered" >            if (sources[prop].id === event.target.value) {</span>
 <span class="cstat-no" title="statement not covered" >                this.sourceId = sources[prop].id; </span>
+<span class="cstat-no" title="statement not covered" >                console.log("this is valable",this.source)</span>
 <span class="cstat-no" title="statement not covered" >                this.setState({ sortBysAvailable: sources[prop].sortBysAvailable })</span>
 <span class="cstat-no" title="statement not covered" >                this.sortBysAvailable = sources[prop].sortBysAvailable;</span>
 <span class="cstat-no" title="statement not covered" >                NewsAPI.getNewsArticle(this.sourceId, this.sortBysAvailable)</span>
@@ -330,9 +315,6 @@ export default class Sources extends React.Component {
         }
 &nbsp;
     }
-&nbsp;
-    
-&nbsp;
 &nbsp;
 <span class="fstat-no" title="function not covered" >    On</span>FilterChange(event) {
         const allSources = <span class="cstat-no" title="statement not covered" >this.state.sources[0];</span>
@@ -394,7 +376,7 @@ export default class Sources extends React.Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 01 2017 14:45:21 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 02 2017 15:11:34 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
