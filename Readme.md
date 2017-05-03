@@ -4,6 +4,6 @@
 
 # Hopeaz NewsFeed Application 
 
-A front-end application that displays a list of recent worldwide news and is Powered by: https://newsapi.org/  displays a list of recent worldwide news. Powered by: https://newsapi.org/
+A front-end application that displays a list of recent worldwide news and is Powered by: https://newsapi.org/  displays a list of recent worldwide news.
 
 Created using React JS and Flux Architecture
