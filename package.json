@@ -4,7 +4,6 @@
   "description": "Project for checkpoint1",
   "main": "index.js",
   "scripts": {
-    "prestart": "webpack -p",
     "start": "node server.js"
   },
   "author": "Hope Ngerebara",
