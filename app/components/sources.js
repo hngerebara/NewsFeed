@@ -11,8 +11,8 @@ export default class Sources extends React.Component {
     //and sortBysAvailable declared as an array 
     //The additional functions(to load, change and filter) are also binded here
     //The deaultid is set to cnn
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             sources: SourceStore.getAll(),
             sortBysAvailable: []
@@ -22,6 +22,8 @@ export default class Sources extends React.Component {
         this.OnFilterChange = this.OnFilterChange.bind(this);
         this.defaultId = 'cnn';
     }
+    
+    
 
 //On mounting the page, the functtion for getiing sources from the api is called
     componentWillMount() {
@@ -33,6 +35,7 @@ export default class Sources extends React.Component {
     componentDidMount() {
         SourceStore.addChangeListener(this._onLoad);
         NewsAPI.getNewsArticle(this.defaultId, this.sortBy);
+        
     }
 
     componentWillUnmount() {
@@ -44,13 +47,13 @@ export default class Sources extends React.Component {
         this.setState({ sources: SourceStore.getAll() });
     }
 
-    _onChange(event) {
-        //Line 1- created a second reference to this
+    //Line 1- created a second reference to this
          //Line 2- Beacuse the sources is within an array of array, it can be accessed via this.state.sources[0]. 
         //...... to eliminate the lengthy naming, I store the value in sources variable
          //Line 3 t end of Function- Created a loop to loop through the source array and check if the value entered by the user matched the source id.
         //...if it matches, then I set the new state of source id to be the user Selection and pass it as a parameter tothe NewsApi that gets article so it
         //...displays the articles based on the user Selection 
+    _onChange(event) {
         const that =this;
         let sources = this.state.sources[0];
         let prop = 0;
@@ -107,11 +110,11 @@ export default class Sources extends React.Component {
     render() {
         let allSources = this.state.sources[0];
         let rows = [];
-        let change = this._onChange;
+        //let change = this._onChange;
         if (allSources) {
             allSources.map((item, index) => {
                 rows.push(<SourceItem key={index} value={item.id} name={item.name}
-                    onclick={change} />)
+                    onclick={this._onChange} />)
             });
         }
 
@@ -122,14 +125,14 @@ export default class Sources extends React.Component {
         //passing sourceId and Sort by available whihis used for sorting
         return (
             <div className="col-lg-12">
-                <div id="sidebar" className="col-lg-2 list-group">
-                    <h3>Please select News Source </h3>
-                    <input type="text" className="form-control" name="x" placeholder="Search News...."
+                <div id="sidebar-wrapper" className="col-lg-2 list-group">
+                    <h4>Please select News Source </h4>
+                    <input type="text" className="form-control" placeholder="Search News...."
                          onKeyUp={this.OnFilterChange.bind(this)} />
                     <div
                         onChange={this._onChange}
                         onLoad={this._onLoad}>
-                        <a href="#" className="list-group-item">{rows}</a>
+                        {rows}
                     </div>
                 </div>
                 <div className="col-lg-10">

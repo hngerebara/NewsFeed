@@ -6,9 +6,10 @@ import Sources from '../app/components/sources';
 export default class Main extends React.Component {
 
     render() {
+        console.log('props from login page', this.props.logout)
         return (
             <div>
-                <Header />
+                <Header logout1={this.props.logout}/>
                 <Sources />
                 <Footer />
             </div>
