@@ -109,17 +109,13 @@ export default class Login extends React.Component {
 
     });
   }
-  logOut() {
-    firebase.auth().signOut().then(function() {
-      this.setState({user: null});
-    }.bind(this));
-  }
+  
 
   whichWindowToShow() {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main user={this.state.user} logout={this.logOut}/>
+          <Main user={this.state.user}/>
         </div>
       );
     }
