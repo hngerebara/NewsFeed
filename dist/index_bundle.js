@@ -16119,11 +16119,10 @@ var Main = function (_React$Component) {
     _createClass(Main, [{
         key: "render",
         value: function render() {
-            console.log('props from login page', this.props.logout);
             return _react2.default.createElement(
                 "div",
                 null,
-                _react2.default.createElement(_header2.default, { logout1: this.props.logout }),
+                _react2.default.createElement(_header2.default, null),
                 _react2.default.createElement(_sources2.default, null),
                 _react2.default.createElement(_footer2.default, null)
             );
@@ -17593,9 +17592,9 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouter = __webpack_require__(183);
 
-var _main = __webpack_require__(180);
+var _login = __webpack_require__(413);
 
-var _main2 = _interopRequireDefault(_main);
+var _login2 = _interopRequireDefault(_login);
 
 var _setUp = __webpack_require__(181);
 
@@ -17610,15 +17609,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //     document.getElementById('news-header')
 // );
 
-// ReactDOM.render( <
-//     Login />, document.getElementById('app')
+// import Main from '../pages/main';
+_reactDom2.default.render(_react2.default.createElement(_login2.default, null), document.getElementById('app'));
+// ReactDOM.render(
+//     <Router history={hashHistory}>
+//      <Route path="/" component={Main} />
+//      <Route path="/setUp" component={SetUp}/>
+//     </Router>,
+//     document.getElementById('app')
 // );
-_reactDom2.default.render(_react2.default.createElement(
-  _reactRouter.Router,
-  { history: _reactRouter.hashHistory },
-  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _main2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/setUp', component: _setUp2.default })
-), document.getElementById('app'));
 
 // ReactDOM.render( <
 //     Main />, document.getElementById('app')
@@ -17629,8 +17628,6 @@ _reactDom2.default.render(_react2.default.createElement(
 //     <Footer/>,
 //     document.getElementById('news-footer')
 // )
-
-//import Login from './login'
 
 /***/ }),
 /* 193 */
@@ -41529,6 +41526,251 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 413 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _firebase = __webpack_require__(260);
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+var _reactfire = __webpack_require__(397);
+
+var _reactfire2 = _interopRequireDefault(_reactfire);
+
+var _main = __webpack_require__(180);
+
+var _main2 = _interopRequireDefault(_main);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//Installed firebase
+//installed reactfire - It is framework for building large, complex user interfaces
+var provider = new _firebase2.default.auth.GoogleAuthProvider();
+
+var Login = function (_React$Component) {
+  _inherits(Login, _React$Component);
+
+  function Login() {
+    _classCallCheck(this, Login);
+
+    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this));
+
+    _this.authenticateUser = {
+      userStatus: function userStatus() {
+        //CHECKING IF SIGNED IN
+        _firebase2.default.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            // USER IS SIGNED IN
+            this.setState({
+              loggedIn: 'true'
+            });
+          } else {
+            // USER IS SIGNED OUT
+            this.setState({
+              loggedIn: 'false'
+            });
+          }
+        });
+      },
+
+
+      //get user profile
+      userProfile: function userProfile() {
+        var user = _firebase2.default.auth().currentUser;
+        var name, email, photoUrl, token, emailVerified;
+
+        if (user != null) {
+          name = user.displayName;
+          email = user.email;
+          photoUrl = user.photoURL;
+          emailVerified = user.emailVerified;
+          token = user.token;
+        }
+        //To get user provider
+
+
+        if (user != null) {
+          user.providerData.forEach(function (profile) {
+            console.log("Sign-in provider: " + profile.providerId);
+            console.log("  Provider-specific UID: " + profile.uid);
+            console.log("  Name: " + profile.displayName);
+            console.log("  Email: " + profile.email);
+            console.log("  Photo URL: " + profile.photoURL);
+          });
+        }
+      }
+    };
+
+    _this.state = {
+      loggedIn: false,
+      user: {}
+    };
+    _this.whichWindowToShow = _this.whichWindowToShow.bind(_this);
+    _this.googleLogin = _this.googleLogin.bind(_this);
+    return _this;
+  }
+
+  // Fire base Initialization
+
+
+  _createClass(Login, [{
+    key: 'firebaseInit',
+    value: function firebaseInit() {
+      var config = {
+        apiKey: "AIzaSyCGXsjsRvXzoMIDJTFl68ddkQsZAsUyHpo",
+        authDomain: "newsfeedtest-165310.firebaseapp.com",
+        databaseURL: "https://newsfeedtest-165310.firebaseio.com",
+        projectId: "newsfeedtest-165310",
+        storageBucket: "newsfeedtest-165310.appspot.com",
+        messagingSenderId: "180657029449"
+      };
+      _firebase2.default.initializeApp(config);
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.firebaseInit();
+    }
+  }, {
+    key: 'googleLogin',
+    value: function googleLogin(event) {
+      var _this2 = this;
+
+      _firebase2.default.auth().signInWithPopup(provider).then(function (result) {
+        console.log(result, 'result');
+        var token = result.credential.accessToken;
+        var user = result.user;
+
+        //Login the user if no errors found
+        _this2.setState({
+          loggedIn: true,
+          user: user
+        });
+      }).catch(function (error) {
+        console.log(error, 'error');
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        var email = error.email;
+        var credential = error.credential;
+
+        if (error) {
+          return errorCode + ' ' + errorMessage;
+        } else if (email || credential) {
+          return "Your email is already being used";
+        }
+      });
+    }
+  }, {
+    key: 'whichWindowToShow',
+    value: function whichWindowToShow() {
+      if (this.state.loggedIn) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_main2.default, { user: this.state.user })
+        );
+      } else {
+        var _React$createElement;
+
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'nav',
+            { className: 'navbar navbar-default navbar-fixed-top topnav', role: 'navigation' },
+            _react2.default.createElement(
+              'div',
+              { className: 'container topnav' },
+              _react2.default.createElement(
+                'div',
+                { className: 'navbar-header' },
+                _react2.default.createElement(
+                  'a',
+                  { className: 'navbar-brand topnav', href: '#' },
+                  'News Feed Application'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'container' },
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-lg-12' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'intro-message' },
+                  _react2.default.createElement(
+                    'h1',
+                    null,
+                    'Welcome to Hopeaz news Feed Application'
+                  ),
+                  _react2.default.createElement(
+                    'h3',
+                    null,
+                    'Please Login with your google account to view news from over 60 sources'
+                  ),
+                  _react2.default.createElement('hr', { className: 'intro-divider' }),
+                  _react2.default.createElement(
+                    'button',
+                    (_React$createElement = { className: 'list-inline intro-social-buttons' }, _defineProperty(_React$createElement, 'className', 'btn btn-default btn-lg'), _defineProperty(_React$createElement, 'onClick', this.googleLogin), _React$createElement),
+                    _react2.default.createElement('i', { className: 'fa fa-google fa-fw' }),
+                    ' ',
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'network-name' },
+                      'Login With Google'
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+      };
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.whichWindowToShow()
+      );
+    }
+  }]);
+
+  return Login;
+}(_react2.default.Component);
+
+exports.default = Login;
 
 /***/ })
 /******/ ]);
