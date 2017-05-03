@@ -8,11 +8,37 @@ A front-end application that displays a list of recent worldwide news and is Pow
 
 Created using React JS and Flux Architecture
 
-#Tech
+# Development
 
-Hopeaz NewsFeed uses the following to work properly:
+Hopeaz NewsFeed was developed using the following :
 * [Firebase] 
 * [React] 
 * [Flux] 
+# Documentation related to specific technology
+-------------------------------------------------------------------------------------------------------------------------
+* Firebase 
+https://firebase.google.com/
+
+* React
+https://facebook.github.io/react/
+
+* Flux
+https://facebook.github.io/flux/
+
+
+# Application Features
+---------------------------------------------------------------------------------------------------------------------------
+#### User Authentication
+
+Users are authenticated and validated using firebase 
+
+#### View News from over 60 Sources
+
+# Getting Started
+---------------------------------------------------------------------------------------------------------------------------
+
+
+# Screenshot
+---------------------------------------------------------------------------------------------------------------------------
 
 
