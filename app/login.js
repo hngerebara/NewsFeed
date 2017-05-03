@@ -1,7 +1,10 @@
 import React from 'react';
 import firebase from 'firebase';
-import Main from './components/Layout/main';
+import reactfire from 'reactfire';
+import Main from '../pages/main';
 
+//Installed firebase
+//installed reactfire - It is framework for building large, complex user interfaces
 var provider = new firebase.auth.GoogleAuthProvider();
 
 export default class Login extends React.Component {
@@ -17,7 +20,6 @@ export default class Login extends React.Component {
 
   // Fire base Initialization
   firebaseInit() {
-    console.log("hhhsj iw");
     var config = {
       apiKey: "AIzaSyCGXsjsRvXzoMIDJTFl68ddkQsZAsUyHpo",
       authDomain: "newsfeedtest-165310.firebaseapp.com",
@@ -32,8 +34,6 @@ export default class Login extends React.Component {
   componentDidMount() {
     this.firebaseInit();
   }
-
-
 
   authenticateUser = {
     userStatus() {
@@ -109,34 +109,49 @@ export default class Login extends React.Component {
 
     });
   }
+  logOut() {
+    firebase.auth().signOut().then(function() {
+      this.setState({user: null});
+    }.bind(this));
+  }
 
   whichWindowToShow() {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main user={this.state.user} />
+          <Main user={this.state.user} logout={this.logOut}/>
         </div>
       );
     }
     else {
       return (
-        <div className="container">
-          <div className="row">
-            <div className="col-md-offset-5 col-md-3">
-              <div className="form-login">
-                <h4>Welcome to Hopez News Feed Application</h4>
-                <div className="wrapper">
-                  <span className="group-btn">
-                    <button className="btn btn-primary btn-md fa fa-sign-in" onClick={this.googleLogin}> Login With Google</button>
-                  </span>
-                </div>
+        <div>
+          <nav className="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <div className="container topnav">
+              <div className="navbar-header">
+                <a className="navbar-brand topnav" href="#">News Feed Application</a>
               </div>
+            </div>
+          </nav>
+         
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="intro-message">
+                    <h1>Welcome to Hopeaz news Feed Application</h1>
+                    <h3>Please Login with your google account to view news from over 60 sources</h3>
+                    <hr className="intro-divider" />
+                    <button className="list-inline intro-social-buttons" className="btn btn-default btn-lg" onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
+                  </div>
+                </div>
+              
             </div>
           </div>
         </div>
-      );
-    }
+      )};
   }
+                
+
 
   render() {
     return (

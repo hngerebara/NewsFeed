@@ -6,15 +6,15 @@ export default class NavBar extends React.Component {
         return (
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
-                    <div className="navbar-header">
-                        <a className="navbar-brand" href="#">News Feed App</a>
+                    <div className="navbar-header navbar-brand">
+                        Hopeaz News Feed App
                     </div>
                     <ul className="nav navbar-nav">
                         <li className="active"><a href="#">Home</a></li>
                         <li><a href="/#/setUp">Setup</a></li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
-                        <li><a href="#"><span className="glyphicon glyphicon-log-in"/> Logout</a></li>
+                        <li><span className="glyphicon glyphicon-log-out"/> Logout</li>
                     </ul>
                 </div>
             </nav>
