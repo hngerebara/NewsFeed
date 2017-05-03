@@ -17,7 +17,7 @@ export default class ArticleItem extends React.Component {
         }
         if (imageSource !== null && imageSource !== undefined && imageSource !== ''){
             image = [<img key={this.props.item.url}  className="article-image" src={imageSource}
-                          style={{height: '280px', width: '450px'}}/> ]
+                          style={{height: '200px', width: '350px'}}/> ]
         }
         return (
             <article>
@@ -27,10 +27,12 @@ export default class ArticleItem extends React.Component {
                         {image}
                     </div>
                     <div className="col-lg-7">
-                        <h3>{this.props.item.description}</h3>
+                        <h4>{this.props.item.description}</h4>
                         <h4>Author: {this.props.item.author}</h4>
                         <h5>Published: {publishedAt}</h5>
+                        <div className="row">
                         <Share share={`${this.props.item.url}`}  title= {`${this.props.item.title}`} />
+                        </div>
                     </div>
                     
                      {/*<button type="button"

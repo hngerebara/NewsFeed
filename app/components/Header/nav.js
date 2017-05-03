@@ -1,6 +1,13 @@
 import React from 'react';
+import firebase from 'firebase';
+import reactfire from 'reactfire';
 
 export default class NavBar extends React.Component {
+    signOut() {
+    firebase.auth().signOut().then(function() {
+      this.setState({user: null});
+    });
+  }
 
     render(){
         return (
@@ -13,9 +20,9 @@ export default class NavBar extends React.Component {
                         <li className="active"><a href="#">Home</a></li>
                         <li><a href="/#/setUp">Setup</a></li>
                     </ul>
-                    <ul className="nav navbar-nav navbar-right">
-                        <li><span className="glyphicon glyphicon-log-out"/> Logout</li>
-                    </ul>
+                    
+                        <button span className="nav navbar-nav navbar-right glyphicon glyphicon-log-out" onClick={this.signOut.bind(this)}> Logout</button>
+                    
                 </div>
             </nav>
         );

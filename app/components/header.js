@@ -6,7 +6,7 @@ export default class Header extends React.Component {
   render() {
     return (
             <div>
-                <NavBar logout2={this.props.logout1}/>
+                <NavBar />
                 <Title headers={this.props.headers}/>
             </div>
     );

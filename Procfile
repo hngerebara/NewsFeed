@@ -1,1 +1,1 @@
-web: node index.js
+gweb: npm start
