@@ -14,7 +14,7 @@ export default class Login extends React.Component {
       loggedIn: false,
       user: {}
     }
-    this.whichWindowToShow = this.whichWindowToShow.bind(this);
+    this.loginPage = this.loginPage.bind(this);
     this.googleLogin = this.googleLogin.bind(this);
   }
 
@@ -34,52 +34,6 @@ export default class Login extends React.Component {
   componentDidMount() {
     this.firebaseInit();
   }
-
-  authenticateUser = {
-    userStatus() {
-      //CHECKING IF SIGNED IN
-      firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-          // USER IS SIGNED IN
-          this.setState({
-            loggedIn: 'true'
-          });
-        } else {
-          // USER IS SIGNED OUT
-          this.setState({
-            loggedIn: 'false'
-          });
-        }
-      })
-    },
-
-    //get user profile
-    userProfile() {
-      var user = firebase.auth().currentUser;
-      var name, email, photoUrl, token, emailVerified;
-
-      if (user != null) {
-        name = user.displayName;
-        email = user.email;
-        photoUrl = user.photoURL;
-        emailVerified = user.emailVerified;
-        token = user.token;
-      }
-      //To get user provider
-
-
-      if (user != null) {
-        user.providerData.forEach(function (profile) {
-          console.log("Sign-in provider: " + profile.providerId);
-          console.log("  Provider-specific UID: " + profile.uid);
-          console.log("  Name: " + profile.displayName);
-          console.log("  Email: " + profile.email);
-          console.log("  Photo URL: " + profile.photoURL);
-        });
-      }
-    }
-  }
-
 
   googleLogin(event) {
     firebase.auth().signInWithPopup(provider).then(result => {
@@ -109,13 +63,21 @@ export default class Login extends React.Component {
 
     });
   }
-  
+  logOut() {
+    firebase.auth().signOut().then(() => {
+      this.setState({
+        loggedIn: false,
+        user: null
+      });
+    });
 
-  whichWindowToShow() {
+  }
+
+  loginPage() {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main user={this.state.user}/>
+          <Main user={this.state.user} logout={this.logOut.bind(this)}/>
         </div>
       );
     }
@@ -146,13 +108,10 @@ export default class Login extends React.Component {
         </div>
       )};
   }
-                
-
-
   render() {
     return (
       <div>
-        {this.whichWindowToShow()}
+        {this.loginPage()}
       </div>
     );
   }

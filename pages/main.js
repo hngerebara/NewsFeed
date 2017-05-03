@@ -8,7 +8,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header logout={this.props.logout}/>
                 <Sources />
                 <Footer />
             </div>
