@@ -36,6 +36,50 @@ Users are authenticated and validated using firebase
 
 # Getting Started
 ---------------------------------------------------------------------------------------------------------------------------
+## Setup
+Just clone the repo and and do the following:
+```sh
+$ npm install
+```
+
+## Launching
+```sh
+$ npm start
+```
+
+# Structure
+---------------------------------------------------------------------------------------------------------------------------
+
+├── __tests__                # Unit tests
+├── app                      # Application source code
+|   ├── actions          
+│   │   ├── newsActions      # news actions      
+│   ├── components           # All Components
+│   │   ├── header           # Contains the Navigation and Title
+│   │   ├── sources          # Mounts news sources and associated articles
+│   │   ├── footer           # displays the footer
+│   │   ├── articles         # mounts articles here to be transfered to the sources component
+│   ├── constants            # 
+│   │   ├── EventConstants   # Defines the Change and click event constants
+│   │   ├── NewsConstants    # Defines the get articles and get sources constants
+│   ├── dispatcher           # 
+│   │   ├── AppDispatcher    # App dispatcher
+│   ├── stores               # Application Stores
+│   │   ├── newsStore        # News articles store
+│   │   ├── SourceStore      # News source store
+│   ├── stylesheets          # Application-wide styles 
+│   ├── Utils                # 
+│   │   ├── config           # Api key
+│   │   ├── newsAPI          # API request
+│   │   ├── share            # social media sharing
+│   ├── index.html               # App Html file
+│   ├── login                # Google login Page
+│   └── index                # Application rendering
+└── assets                   # images used
+├── pages                    # Application route definitions
+    ├── main             # Apps Main page
+    ├── setUp            # Explain the setUp steps in detail
+
 
 
 # Screenshot

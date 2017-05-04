@@ -4331,8 +4331,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   GET_NEWS_SOURCES: 'get_news_source',
-  GET_NEWS_ARTICLE: 'get_news_article',
-  ARTICLES_SORT: 'articles_sort'
+  GET_NEWS_ARTICLE: 'get_news_article'
 };
 
 /***/ }),
@@ -9191,7 +9190,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
     CHANGE_EVENT: 'change',
-    FILTER_CHANGE_EVENT: 'filter_change',
     CLICK_EVENT: 'click'
 };
 
