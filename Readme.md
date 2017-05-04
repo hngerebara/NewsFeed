@@ -49,7 +49,7 @@ $ npm start
 
 # Structure
 ---------------------------------------------------------------------------------------------------------------------------
-
+```sh
 ├── __tests__                # Unit tests
 ├── app                      # Application source code
 |   ├── actions          
@@ -72,13 +72,15 @@ $ npm start
 │   │   ├── config           # Api key
 │   │   ├── newsAPI          # API request
 │   │   ├── share            # social media sharing
-│   ├── index.html               # App Html file
+│   ├── index.html           # App Html file
 │   ├── login                # Google login Page
 │   └── index                # Application rendering
 └── assets                   # images used
 ├── pages                    # Application route definitions
-    ├── main             # Apps Main page
-    ├── setUp            # Explain the setUp steps in detail
+    ├── main                 # Apps Main page
+    ├── setUp                # Explain the setUp steps in detail
+
+```
 
 
 
