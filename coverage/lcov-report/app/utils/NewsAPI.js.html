@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">12.5% </span>
+        <span class="strong">9.09% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/16</span>
+        <span class='fraction'>1/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/10</span>
+        <span class='fraction'>1/7</span>
       </div>
     </div>
   </div>
@@ -70,24 +70,7 @@
 25
 26
 27
-28
-29
-30
-31
-32
-33
-34
-35</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+28</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -96,19 +79,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import NewsActions from '../actions/NewsActions.js';
@@ -123,35 +109,28 @@ export function getNewsSources(){
 <span class="cstat-no" title="statement not covered" >        if (err) <span class="cstat-no" title="statement not covered" >console.error(err);</span></span>
 <span class="cstat-no" title="statement not covered" >        if(response) <span class="cstat-no" title="statement not covered" >NewsActions.getNewsSources(response.body);</span></span>
       });
+     
 }
 &nbsp;
 &nbsp;
-export function getNewsArticle(source) {
-    request.get('https://newsapi.org/v1/articles?q={source}')
-        .query({source: source})
-        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
+export function <span class="fstat-no" title="function not covered" >getNewsArticle(</span>source, sortBy) {
+<span class="cstat-no" title="statement not covered" >    request.get(`https://newsapi.org/v1/articles?apiKey=${apikey.apikey}`)</span>
+        .query({source: source, sortBy: sortBy})
         .end(<span class="fstat-no" title="function not covered" >(e</span>rr, response) =&gt; {
+<span class="cstat-no" title="statement not covered" >            console.log(response,"gghfghgfg");</span>
 <span class="cstat-no" title="statement not covered" >            if (err) <span class="cstat-no" title="statement not covered" >console.error(err);</span></span>
 <span class="cstat-no" title="statement not covered" >            if(response) <span class="cstat-no" title="statement not covered" >NewsActions.getNewsArticles(response.body);</span></span>
         });
+         
 }
-export function <span class="fstat-no" title="function not covered" >getSort(</span>sortBy) {
-<span class="cstat-no" title="statement not covered" >    console.log("hhhjdhjhdssh",sortBy)</span>
-<span class="cstat-no" title="statement not covered" >    request.get('https://newsapi.org/v1/articles?')</span>
-        .query({sortBy: sortBy})
-        .set({'X-Api-Key': apikey.apikey, Accept : 'application/json'})
-        .end(<span class="fstat-no" title="function not covered" >(e</span>rr, response) =&gt; {
-<span class="cstat-no" title="statement not covered" >            if (err) <span class="cstat-no" title="statement not covered" >console.error(err);</span></span>
-<span class="cstat-no" title="statement not covered" >            if(response) <span class="cstat-no" title="statement not covered" >NewsActions.getNewsArticles(response.body);</span></span>
-        });
-}
+&nbsp;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 02 2017 15:11:34 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 04 2017 04:04:44 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

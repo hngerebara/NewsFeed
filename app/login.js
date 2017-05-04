@@ -1,10 +1,9 @@
 import React from 'react';
 import firebase from 'firebase';
-import reactfire from 'reactfire';
 import Main from '../pages/main';
+import './stylesheets/style.css';
 
 //Installed firebase
-//installed reactfire - It is framework for building large, complex user interfaces
 var provider = new firebase.auth.GoogleAuthProvider();
 
 export default class Login extends React.Component {
@@ -14,7 +13,7 @@ export default class Login extends React.Component {
       loggedIn: false,
       user: {}
     }
-    this.whichWindowToShow = this.whichWindowToShow.bind(this);
+    this.loginPage = this.loginPage.bind(this);
     this.googleLogin = this.googleLogin.bind(this);
   }
 
@@ -34,52 +33,6 @@ export default class Login extends React.Component {
   componentDidMount() {
     this.firebaseInit();
   }
-
-  authenticateUser = {
-    userStatus() {
-      //CHECKING IF SIGNED IN
-      firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-          // USER IS SIGNED IN
-          this.setState({
-            loggedIn: 'true'
-          });
-        } else {
-          // USER IS SIGNED OUT
-          this.setState({
-            loggedIn: 'false'
-          });
-        }
-      })
-    },
-
-    //get user profile
-    userProfile() {
-      var user = firebase.auth().currentUser;
-      var name, email, photoUrl, token, emailVerified;
-
-      if (user != null) {
-        name = user.displayName;
-        email = user.email;
-        photoUrl = user.photoURL;
-        emailVerified = user.emailVerified;
-        token = user.token;
-      }
-      //To get user provider
-
-
-      if (user != null) {
-        user.providerData.forEach(function (profile) {
-          console.log("Sign-in provider: " + profile.providerId);
-          console.log("  Provider-specific UID: " + profile.uid);
-          console.log("  Name: " + profile.displayName);
-          console.log("  Email: " + profile.email);
-          console.log("  Photo URL: " + profile.photoURL);
-        });
-      }
-    }
-  }
-
 
   googleLogin(event) {
     firebase.auth().signInWithPopup(provider).then(result => {
@@ -110,38 +63,40 @@ export default class Login extends React.Component {
     });
   }
   logOut() {
-    firebase.auth().signOut().then(function() {
-      this.setState({user: null});
-    }.bind(this));
+    firebase.auth().signOut().then(() => {
+      this.setState({
+        loggedIn: false,
+        user: null
+      });
+    });
+
   }
 
-  whichWindowToShow() {
+  loginPage() {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main user={this.state.user} logout={this.logOut}/>
+          <Main user={this.state.user} logout={this.logOut.bind(this)}/>
         </div>
       );
     }
     else {
       return (
         <div>
-          <nav className="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-            <div className="container topnav">
-              <div className="navbar-header">
-                <a className="navbar-brand topnav" href="#">News Feed Application</a>
-              </div>
-            </div>
-          </nav>
-         
+          
             <div className="container">
-              <div className="row">
+            <div className="siteNav">
+              <div className="siteTitle">
+                <h1>Hopeaz Newsfeed</h1>
+              </div>
+          </div>
+              <div className="mainBody">
                 <div className="col-lg-12">
                   <div className="intro-message">
                     <h1>Welcome to Hopeaz news Feed Application</h1>
-                    <h3>Please Login with your google account to view news from over 60 sources</h3>
-                    <hr className="intro-divider" />
-                    <button className="list-inline intro-social-buttons" className="btn btn-default btn-lg" onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
+                    <h5>Please Login with your google account to view news from over 60 sources</h5>
+                   
+                    <button className="list-inline intro-social-buttons login_button"  onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
                   </div>
                 </div>
               
@@ -150,13 +105,10 @@ export default class Login extends React.Component {
         </div>
       )};
   }
-                
-
-
   render() {
     return (
       <div>
-        {this.whichWindowToShow()}
+        {this.loginPage()}
       </div>
     );
   }

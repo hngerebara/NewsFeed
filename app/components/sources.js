@@ -23,8 +23,6 @@ export default class Sources extends React.Component {
         this.defaultId = 'cnn';
     }
     
-    
-
 //On mounting the page, the functtion for getiing sources from the api is called
     componentWillMount() {
         NewsAPI.getNewsSources();

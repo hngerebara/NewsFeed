@@ -37,7 +37,7 @@ const NewsStore = ObjectAssign( {}, EventEmitter.prototype, {
 
 AppDispatcher.register(payload => {
     const action = payload.action;
-
+      
     switch (action.actionType){
         case NewsConstants.GET_NEWS_ARTICLE:
             if (_articles.list.length > 0) _articles.list = [];
