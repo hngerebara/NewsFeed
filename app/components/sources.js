@@ -23,6 +23,8 @@ export default class Sources extends React.Component {
         this.defaultId = 'cnn';
     }
     
+    
+
 //On mounting the page, the functtion for getiing sources from the api is called
     componentWillMount() {
         NewsAPI.getNewsSources();
@@ -124,7 +126,7 @@ export default class Sources extends React.Component {
         return (
             <div className="col-lg-12">
                 <div id="sidebar-wrapper" className="col-lg-2 list-group">
-                    <h4>Please select News Source </h4>
+                    <h5>Please select News Source </h5>
                     <input type="text" className="form-control" placeholder="Search News...."
                          onKeyUp={this.OnFilterChange.bind(this)} />
                     <div
