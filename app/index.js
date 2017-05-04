@@ -6,14 +6,7 @@ import Login from './login'
 import SetUp from '../pages/setUp';
 import './stylesheets/style.css';
 
-
-
-// ReactDOM.render(
-//     <Header headers="Latest News"/>,
-//     document.getElementById('news-header')
-// );
-
-ReactDOM.render( <
+ReactDOM.render(<
     Login />, document.getElementById('app')
 );
 // ReactDOM.render(
@@ -23,13 +16,3 @@ ReactDOM.render( <
 //     </Router>,
 //     document.getElementById('app')
 // );
-
-// ReactDOM.render( <
-//     Main />, document.getElementById('app')
-// );
-
-
-// ReactDOM.render(
-//     <Footer/>,
-//     document.getElementById('news-footer')
-// )

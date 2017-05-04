@@ -14,6 +14,7 @@ Hopeaz NewsFeed was developed using the following :
 * [Firebase] 
 * [React] 
 * [Flux] 
+
 # Documentation related to specific technology
 -------------------------------------------------------------------------------------------------------------------------
 * Firebase 
@@ -36,8 +37,20 @@ Users are authenticated and validated using firebase
 
 # Getting Started
 ---------------------------------------------------------------------------------------------------------------------------
+Follow the steps below to run this project on your computer:
 ## Setup
-Just clone the repo and and do the following:
+* Clone the repo 
+
+```sh
+$ git clone https://github.com/andela-hngerebara/NewsFeed.git
+```
+
+* Install NodeJS:  <a href:"https://nodejs.org/en/download/">Click here</a>
+
+
+* Open a terminal/command prompt on your computer and cd into your preferred path/location.
+
+* run the command below to install
 ```sh
 $ npm install
 ```

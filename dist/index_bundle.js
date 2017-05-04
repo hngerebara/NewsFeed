@@ -17595,11 +17595,6 @@ __webpack_require__(184);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// ReactDOM.render(
-//     <Header headers="Latest News"/>,
-//     document.getElementById('news-header')
-// );
-
 // import Main from '../pages/main';
 _reactDom2.default.render(_react2.default.createElement(_login2.default, null), document.getElementById('app'));
 // ReactDOM.render(
@@ -17609,16 +17604,6 @@ _reactDom2.default.render(_react2.default.createElement(_login2.default, null), 
 //     </Router>,
 //     document.getElementById('app')
 // );
-
-// ReactDOM.render( <
-//     Main />, document.getElementById('app')
-// );
-
-
-// ReactDOM.render(
-//     <Footer/>,
-//     document.getElementById('news-footer')
-// )
 
 /***/ }),
 /* 193 */
@@ -17703,42 +17688,30 @@ var Share = function (_Component) {
             {
               url: shareUrl,
               title: title,
-              className: 'Demo__some-network__share-button' },
+              className: 'Demo__some-network__share-button sharetbn' },
             _react2.default.createElement(FacebookIcon, {
               size: 32,
               round: true })
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'Demo__some-network' },
+          ),
           _react2.default.createElement(
             TwitterShareButton,
             {
               url: shareUrl,
               title: title,
-              className: 'Demo__some-network__share-button' },
+              className: 'Demo__some-network__share-button sharetbn' },
             _react2.default.createElement(TwitterIcon, {
               size: 32,
               round: true })
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'Demo__some-network' },
+          ),
           _react2.default.createElement(
             GooglePlusShareButton,
             {
               url: shareUrl,
-              className: 'Demo__some-network__share-button' },
+              className: 'Demo__some-network__share-button sharetbn' },
             _react2.default.createElement(GooglePlusIcon, {
               size: 32,
               round: true })
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'Demo__some-network' },
+          ),
           _react2.default.createElement(
             LinkedinShareButton,
             {
@@ -17746,7 +17719,7 @@ var Share = function (_Component) {
               title: title,
               windowWidth: 750,
               windowHeight: 600,
-              className: 'Demo__some-network__share-button' },
+              className: 'Demo__some-network__share-button sharetbn' },
             _react2.default.createElement(LinkedinIcon, {
               size: 32,
               round: true })
@@ -20668,10 +20641,12 @@ exports = module.exports = __webpack_require__(238)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  background: #edf1e3;\n}\n\n.style__sources-table___i6QX3{\n  width: 30%;\n}\n\n.style__article-image___2UJ3C{\n  height: 320px;\n  width: 560px;\n}\n\n.style__news-sources___2cvWg{\n  cursor: pointer;\n}\n\n.style__container___1x-MY{\n  margin-left: 1px;\n}\n\n.style__scrollable-menu___2x8Ut {\n  height: auto;\n  padding: 4px 17px;\n}\n.style__google___3NS-U {\n    border: 1px solid #95989A;\n    background: #fff no-repeat 25px;\n    background-size: 25px;\n}\n\n/* sorting css*/\n.style__news-articles___33WZQ{\n  cursor: pointer;\n}\n\n.style__Demo__some-network___2i6Ym {\n  display: inline-block;\n  margin-right: 15px;\n  text-align: center;\n}\n\n\n\n\n", ""]);
+exports.push([module.i, "* {\n    margin: 0;\n    padding: 0;\n}\n.style__siteNav___1P69B {\n  margin-top: 100px;\n  padding: 10px;\n  margin-bottom: 20px;\n  min-height: 200px;\n  width: 100%;\n}\n .style__headTest___2mqRx{\n  background:red;\n  min-width: 400px;\n  min-height: 300px;\n }\n\n.style__sources-table___i6QX3{\n  width: 30%;\n}\n\n.style__article-image___2UJ3C{\n  height: 320px;\n  width: 560px;\n}\n\n.style__news-sources___2cvWg{\n  cursor: pointer;\n}\n\n.style__container___1x-MY{\n  margin-left: 1px;\n}\n\n.style__scrollable-menu___2x8Ut {\n  height: auto;\n  padding: 4px 17px;\n}\n.style__google___3NS-U {\n    border: 1px solid #95989A;\n    background: #fff no-repeat 25px;\n    background-size: 25px;\n}\n\n/* sorting css*/\n.style__news-articles___33WZQ{\n  cursor: pointer;\n}\n\n.style__Demo__some-network___2i6Ym {\n  display: inline-block;\n  margin-right: 15px;\n  text-align: center;\n}\n\n\n\n\n", ""]);
 
 // exports
 exports.locals = {
+	"siteNav": "style__siteNav___1P69B",
+	"headTest": "style__headTest___2mqRx",
 	"sources-table": "style__sources-table___i6QX3",
 	"article-image": "style__article-image___2UJ3C",
 	"news-sources": "style__news-sources___2cvWg",
@@ -41539,17 +41514,13 @@ var _firebase = __webpack_require__(260);
 
 var _firebase2 = _interopRequireDefault(_firebase);
 
-var _reactfire = __webpack_require__(397);
-
-var _reactfire2 = _interopRequireDefault(_reactfire);
-
 var _main = __webpack_require__(180);
 
 var _main2 = _interopRequireDefault(_main);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+__webpack_require__(184);
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -41558,7 +41529,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 //Installed firebase
-//installed reactfire - It is framework for building large, complex user interfaces
 var provider = new _firebase2.default.auth.GoogleAuthProvider();
 
 var Login = function (_React$Component) {
@@ -41650,34 +41620,28 @@ var Login = function (_React$Component) {
           _react2.default.createElement(_main2.default, { user: this.state.user, logout: this.logOut.bind(this) })
         );
       } else {
-        var _React$createElement;
-
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(
-            'nav',
-            { className: 'navbar navbar-default navbar-fixed-top topnav', role: 'navigation' },
-            _react2.default.createElement(
-              'div',
-              { className: 'container topnav' },
-              _react2.default.createElement(
-                'div',
-                { className: 'navbar-header' },
-                _react2.default.createElement(
-                  'a',
-                  { className: 'navbar-brand topnav', href: '#' },
-                  'News Feed Application'
-                )
-              )
-            )
-          ),
           _react2.default.createElement(
             'div',
             { className: 'container' },
             _react2.default.createElement(
               'div',
-              { className: 'row' },
+              { className: 'siteNav' },
+              _react2.default.createElement(
+                'div',
+                { className: 'siteTitle' },
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  'Hopeaz Newsfeed'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'mainBody' },
               _react2.default.createElement(
                 'div',
                 { className: 'col-lg-12' },
@@ -41690,14 +41654,13 @@ var Login = function (_React$Component) {
                     'Welcome to Hopeaz news Feed Application'
                   ),
                   _react2.default.createElement(
-                    'h3',
+                    'h5',
                     null,
                     'Please Login with your google account to view news from over 60 sources'
                   ),
-                  _react2.default.createElement('hr', { className: 'intro-divider' }),
                   _react2.default.createElement(
                     'button',
-                    (_React$createElement = { className: 'list-inline intro-social-buttons' }, _defineProperty(_React$createElement, 'className', 'btn btn-default btn-lg'), _defineProperty(_React$createElement, 'onClick', this.googleLogin), _React$createElement),
+                    { className: 'list-inline intro-social-buttons login_button', onClick: this.googleLogin },
                     _react2.default.createElement('i', { className: 'fa fa-google fa-fw' }),
                     ' ',
                     _react2.default.createElement(

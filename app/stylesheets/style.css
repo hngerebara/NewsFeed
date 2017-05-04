@@ -1,6 +1,19 @@
-body {
-  background: #edf1e3;
+* {
+    margin: 0;
+    padding: 0;
 }
+.siteNav {
+  margin-top: 100px;
+  padding: 10px;
+  margin-bottom: 20px;
+  min-height: 200px;
+  width: 100%;
+}
+ .headTest{
+  background:red;
+  min-width: 400px;
+  min-height: 300px;
+ }
 
 .sources-table{
   width: 30%;

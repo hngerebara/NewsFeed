@@ -1,10 +1,9 @@
 import React from 'react';
 import firebase from 'firebase';
-import reactfire from 'reactfire';
 import Main from '../pages/main';
+import './stylesheets/style.css';
 
 //Installed firebase
-//installed reactfire - It is framework for building large, complex user interfaces
 var provider = new firebase.auth.GoogleAuthProvider();
 
 export default class Login extends React.Component {
@@ -84,22 +83,20 @@ export default class Login extends React.Component {
     else {
       return (
         <div>
-          <nav className="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-            <div className="container topnav">
-              <div className="navbar-header">
-                <a className="navbar-brand topnav" href="#">News Feed Application</a>
-              </div>
-            </div>
-          </nav>
-         
+          
             <div className="container">
-              <div className="row">
+            <div className="siteNav">
+              <div className="siteTitle">
+                <h1>Hopeaz Newsfeed</h1>
+              </div>
+          </div>
+              <div className="mainBody">
                 <div className="col-lg-12">
                   <div className="intro-message">
                     <h1>Welcome to Hopeaz news Feed Application</h1>
-                    <h3>Please Login with your google account to view news from over 60 sources</h3>
-                    <hr className="intro-divider" />
-                    <button className="list-inline intro-social-buttons" className="btn btn-default btn-lg" onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
+                    <h5>Please Login with your google account to view news from over 60 sources</h5>
+                   
+                    <button className="list-inline intro-social-buttons login_button"  onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
                   </div>
                 </div>
               
