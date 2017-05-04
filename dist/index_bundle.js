@@ -4331,8 +4331,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   GET_NEWS_SOURCES: 'get_news_source',
-  GET_NEWS_ARTICLE: 'get_news_article',
-  ARTICLES_SORT: 'articles_sort'
+  GET_NEWS_ARTICLE: 'get_news_article'
 };
 
 /***/ }),
@@ -9168,7 +9167,7 @@ var Header = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_nav2.default, null),
+        _react2.default.createElement(_nav2.default, { logout: this.props.logout }),
         _react2.default.createElement(_title2.default, { headers: this.props.headers })
       );
     }
@@ -9191,7 +9190,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
     CHANGE_EVENT: 'change',
-    FILTER_CHANGE_EVENT: 'filter_change',
     CLICK_EVENT: 'click'
 };
 
@@ -16122,7 +16120,7 @@ var Main = function (_React$Component) {
             return _react2.default.createElement(
                 "div",
                 null,
-                _react2.default.createElement(_header2.default, null),
+                _react2.default.createElement(_header2.default, { logout: this.props.logout }),
                 _react2.default.createElement(_sources2.default, null),
                 _react2.default.createElement(_footer2.default, null)
             );
@@ -16937,13 +16935,6 @@ var NavBar = function (_React$Component) {
     }
 
     _createClass(NavBar, [{
-        key: 'signOut',
-        value: function signOut() {
-            _firebase2.default.auth().signOut().then(function () {
-                this.setState({ user: null });
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -16981,7 +16972,7 @@ var NavBar = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'button',
-                        { span: true, className: 'nav navbar-nav navbar-right glyphicon glyphicon-log-out', onClick: this.signOut.bind(this) },
+                        { span: true, className: 'nav navbar-nav navbar-right glyphicon glyphicon-log-out', onClick: this.props.logout.bind(this) },
                         ' Logout'
                     )
                 )
@@ -41578,57 +41569,11 @@ var Login = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this));
 
-    _this.authenticateUser = {
-      userStatus: function userStatus() {
-        //CHECKING IF SIGNED IN
-        _firebase2.default.auth().onAuthStateChanged(function (user) {
-          if (user) {
-            // USER IS SIGNED IN
-            this.setState({
-              loggedIn: 'true'
-            });
-          } else {
-            // USER IS SIGNED OUT
-            this.setState({
-              loggedIn: 'false'
-            });
-          }
-        });
-      },
-
-
-      //get user profile
-      userProfile: function userProfile() {
-        var user = _firebase2.default.auth().currentUser;
-        var name, email, photoUrl, token, emailVerified;
-
-        if (user != null) {
-          name = user.displayName;
-          email = user.email;
-          photoUrl = user.photoURL;
-          emailVerified = user.emailVerified;
-          token = user.token;
-        }
-        //To get user provider
-
-
-        if (user != null) {
-          user.providerData.forEach(function (profile) {
-            console.log("Sign-in provider: " + profile.providerId);
-            console.log("  Provider-specific UID: " + profile.uid);
-            console.log("  Name: " + profile.displayName);
-            console.log("  Email: " + profile.email);
-            console.log("  Photo URL: " + profile.photoURL);
-          });
-        }
-      }
-    };
-
     _this.state = {
       loggedIn: false,
       user: {}
     };
-    _this.whichWindowToShow = _this.whichWindowToShow.bind(_this);
+    _this.loginPage = _this.loginPage.bind(_this);
     _this.googleLogin = _this.googleLogin.bind(_this);
     return _this;
   }
@@ -41684,13 +41629,25 @@ var Login = function (_React$Component) {
       });
     }
   }, {
-    key: 'whichWindowToShow',
-    value: function whichWindowToShow() {
+    key: 'logOut',
+    value: function logOut() {
+      var _this3 = this;
+
+      _firebase2.default.auth().signOut().then(function () {
+        _this3.setState({
+          loggedIn: false,
+          user: null
+        });
+      });
+    }
+  }, {
+    key: 'loginPage',
+    value: function loginPage() {
       if (this.state.loggedIn) {
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_main2.default, { user: this.state.user })
+          _react2.default.createElement(_main2.default, { user: this.state.user, logout: this.logOut.bind(this) })
         );
       } else {
         var _React$createElement;
@@ -41762,7 +41719,7 @@ var Login = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        this.whichWindowToShow()
+        this.loginPage()
       );
     }
   }]);
