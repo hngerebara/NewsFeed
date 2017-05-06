@@ -32,7 +32,7 @@ export default class Sources extends React.Component {
     componentWillUnmount() {
         SourceStore.removeChangeListener(this._onLoad);
     }
-    
+
     _onLoad() {
         this.setState({ sources: SourceStore.getAll() });
     }
@@ -45,8 +45,6 @@ export default class Sources extends React.Component {
         const allSources = SourceStore.getAll()[0];
         const filterBy = event.target.value.toString().toLowerCase();
         const filteredList = [];
-         console.log(allSources,"all sources")
-         console.log(event.target.value,"value")
         if (!event.target.value) {
             this.setState({
                 sources: allSources
@@ -56,14 +54,12 @@ export default class Sources extends React.Component {
                 let value = allSources[index].name;
                 if ((new RegExp(filterBy)).test(value.toLowerCase())) {
                     filteredList.push(allSources[index]);
-                    console.log(filteredList,"filetrred list")
                     this.setState({
                         sources: [filteredList]
                     })
                 }
             }
         }
-    
 
     }
     render() {
