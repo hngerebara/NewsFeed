@@ -4,7 +4,7 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Login from './login'
 // import Main from '../pages/main';
 import SetUp from '../pages/setUp';
-import './stylesheets/style.css';
+require('./stylesheets/style.css');
 
 ReactDOM.render(<
     Login />, document.getElementById('app')
