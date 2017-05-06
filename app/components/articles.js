@@ -5,9 +5,6 @@ import SourceStore from '../stores/SourceStore';
 import NewsActions from '../actions/NewsActions';
 import * as NewsAPI from '../utils/NewsAPI';
 
-//takes the prope from parent class source
-//create constructor having initial state set to display the articles in the newsstore
-//The additional functions(to load, and sort) are also binded athere
 export default class Articles extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +15,8 @@ export default class Articles extends React.Component {
     }
 
     loadArticles() {
-        this.setState(NewsStore.getAll());
+       this.setState({ articles: NewsStore.getAll() });
+
     }
 
     componentWillMount() {
@@ -27,11 +25,6 @@ export default class Articles extends React.Component {
 
     componentWillUnmount() {
         NewsStore.removeChangeListener(this.loadArticles);
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        this.setState({ articles: NewsStore.getAll() });
-        return true;
     }
 
     onSort(event) {
@@ -56,7 +49,7 @@ export default class Articles extends React.Component {
                 <select
                     className="col-lg-3"
                     onChange={this.onSort.bind(this)}>
-                    {this.props.sortParams.map(param => <option>{param}</option>)}
+                    {this.props.sortParams.map((param, index) => <option key={index} >{param}</option>)}
                 </select>
                 <div style={{ display: 'inline-block', width: '100%' }}>
                     {rows}
