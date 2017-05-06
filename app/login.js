@@ -32,6 +32,13 @@ export default class Login extends React.Component {
 
   componentDidMount() {
     this.firebaseInit();
+    const token = localStorage.getItem('accssToken');
+    if (token) {
+      this.setState({
+        loggedIn: true,
+        user: {}
+      });
+    }
   }
 
   googleLogin(event) {
@@ -39,7 +46,7 @@ export default class Login extends React.Component {
       console.log(result, 'result')
       var token = result.credential.accessToken;
       var user = result.user;
-
+      localStorage.setItem('accssToken', token);
       //Login the user if no errors found
       this.setState({
         loggedIn: true,
@@ -63,6 +70,7 @@ export default class Login extends React.Component {
     });
   }
   logOut() {
+    localStorage.removeItem("accessToken");
     firebase.auth().signOut().then(() => {
       this.setState({
         loggedIn: false,
