@@ -1,10 +1,22 @@
+/**
+    @overview - NewsFeed Application that consumes
+    www.newsapi.org api to display news sources based on selction
+    @author Hope Ngerebara
+    @license See file 'LICENSE.md' in this project.
+ */
+
+
 import React from 'react';
 import firebase from 'firebase';
 import Main from '../pages/main';
 import './stylesheets/style.css';
 
-//Installed firebase
 var provider = new firebase.auth.GoogleAuthProvider();
+
+/**
+ * Class displaying Login Page
+ * @extends React.Component
+ */
 
 export default class Login extends React.Component {
   constructor() {
@@ -30,6 +42,10 @@ export default class Login extends React.Component {
     firebase.initializeApp(config);
   }
 
+/**
+   * Invoked immediately after a component is mounted
+   * @return {void} returns nothing
+   */
   componentDidMount() {
     this.firebaseInit();
     const token = localStorage.getItem('accssToken');
@@ -41,9 +57,12 @@ export default class Login extends React.Component {
     }
   }
 
+/**
+   * Checks user credential
+   * @param event
+   */
   googleLogin(event) {
     firebase.auth().signInWithPopup(provider).then(result => {
-      console.log(result, 'result')
       var token = result.credential.accessToken;
       var user = result.user;
       localStorage.setItem('accssToken', token);
@@ -55,7 +74,6 @@ export default class Login extends React.Component {
 
 
     }).catch(function (error) {
-      console.log(error, 'error')
       var errorCode = error.code;
       var errorMessage = error.message;
       var email = error.email;
@@ -69,6 +87,12 @@ export default class Login extends React.Component {
 
     });
   }
+
+    /**
+   * Logs user out
+   * @returns null
+   * @param event
+   */
   logOut() {
     localStorage.removeItem("accessToken");
     firebase.auth().signOut().then(() => {
@@ -79,7 +103,12 @@ export default class Login extends React.Component {
     });
 
   }
-
+ 
+   /**
+   * Show the Login Component
+   * @return {jsx} Show the login component
+   */
+ 
   loginPage() {
     if (this.state.loggedIn) {
       return (

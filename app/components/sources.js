@@ -5,21 +5,26 @@ import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
 import Articles from '../components/articles';
 
+/**
+ * Main component to display both sources and articles
+ * @extends React.Component
+ */
 export default class Sources extends React.Component {
-
+/** @constructor */
     constructor(props) {
         super(props);
         this.state = {
             sources: [],
             sortBysAvailable: []
         };
+
         this._onLoad = this._onLoad.bind(this);
         this._onChange = this._onChange.bind(this);
         this.OnFilterChange = this.OnFilterChange.bind(this);
+
         this.defaultId = 'cnn';
     }
 
-   
     componentDidMount() {
         NewsActions.getNewsSources();
         SourceStore.addChangeListener(this._onLoad);
@@ -30,6 +35,11 @@ export default class Sources extends React.Component {
         SourceStore.removeChangeListener(this._onLoad);
     }
 
+/**
+ * @function
+ * @returns {object} state
+ * @description update state
+ * */
     _onLoad() {
         this.setState({ sources: SourceStore.getAll() });
     }
@@ -38,10 +48,15 @@ export default class Sources extends React.Component {
         NewsActions.getNewsArticles(sourceId, sortBysAvailable)
     }
 
+/**
+ * @param {String} onFilterhange
+ * @returns [Array]
+ */
     OnFilterChange(event) {
         const allSources = SourceStore.getAll()[0];
         const filterBy = event.target.value.toString().toLowerCase();
         const filteredList = [];
+
         if (!event.target.value) {
             this.setState({
                 sources: allSources
@@ -57,8 +72,11 @@ export default class Sources extends React.Component {
                 }
             }
         }
-
     }
+
+/**
+ * Renders {jsx}
+ */
     render() {
         let allSources = this.state.sources[0];
         return (

@@ -1,5 +1,8 @@
 var React = require('react');
 
+/**
+ * Footer compoonent
+ */
 export default class Footer extends React.Component {
   render() {
     return (
