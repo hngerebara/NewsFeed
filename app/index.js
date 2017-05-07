@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './login';
+import Login from '../app/components/Login';
 require('./stylesheets/style.css');
 
 ReactDOM.render(<

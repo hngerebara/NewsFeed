@@ -1,8 +1,8 @@
-import NewsConstants from '../constants/NewsConstants';
-import ObjectAssign from 'object-assign';
+import NewsConstants from "../constants/NewsConstants";
+import ObjectAssign from "object-assign";
 import {EventEmitter} from 'events';
-import EventConstants from '../constants/EventConstants.js';
-import AppDispatcher from "../dispatcher/AppDispatcher.js";
+import EventConstants from '../constants/EventConstants';
+import AppDispatcher from "../dispatcher/AppDispatcher";
 
 // Define the Articles store as an empty array
 const _articles = {

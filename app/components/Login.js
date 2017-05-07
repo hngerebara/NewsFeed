@@ -8,8 +8,8 @@
 
 import React from 'react';
 import firebase from 'firebase';
-import Main from '../pages/main';
-import './stylesheets/style.css';
+import Main from '../components/containers/main';
+import '../stylesheets/style.css';
 
 var provider = new firebase.auth.GoogleAuthProvider();
 
