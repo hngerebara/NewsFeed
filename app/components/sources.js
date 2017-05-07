@@ -1,5 +1,4 @@
 import React from 'react';
-import * as NewsAPI from '../utils/NewsAPI';
 import SourceStore from '../stores/SourceStore';
 import SourceItem from './source-items';
 import NewsStore from '../stores/NewsStore';
@@ -11,7 +10,7 @@ export default class Sources extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sources: SourceStore.getAll(),
+            sources: [],
             sortBysAvailable: []
         };
         this._onLoad = this._onLoad.bind(this);
@@ -20,13 +19,11 @@ export default class Sources extends React.Component {
         this.defaultId = 'cnn';
     }
 
-    componentWillMount() {
-        NewsAPI.getNewsSources();
-    }
-
+   
     componentDidMount() {
+        NewsActions.getNewsSources();
         SourceStore.addChangeListener(this._onLoad);
-        NewsAPI.getNewsArticle(this.defaultId, this.sortBy);
+        NewsActions.getNewsArticles(this.defaultId, this.sortBy);
     }
 
     componentWillUnmount() {
@@ -38,7 +35,7 @@ export default class Sources extends React.Component {
     }
 
     _onChange(sourceId, sortBysAvailable) {
-        NewsAPI.getNewsArticle(sourceId, sortBysAvailable)
+        NewsActions.getNewsArticles(sourceId, sortBysAvailable)
     }
 
     OnFilterChange(event) {
@@ -70,7 +67,7 @@ export default class Sources extends React.Component {
                     <h5>Please select News Source </h5>
                     <input type="text" className="form-control" placeholder="Search News...."
                          onChange={this.OnFilterChange} />
-                    <div onLoad={this._onLoad}>
+                    <div>
                         { allSources && allSources.map((item, index) => <SourceItem key={index} value={item.id} name={item.name}
                           onclick={() => this._onChange(item.id, item.sortBysAvailable)} />)
                         }

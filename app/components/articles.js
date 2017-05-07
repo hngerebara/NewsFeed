@@ -3,7 +3,6 @@ import ArticleItem from './article-items.js';
 import NewsStore from '../stores/NewsStore';
 import SourceStore from '../stores/SourceStore';
 import NewsActions from '../actions/NewsActions';
-import * as NewsAPI from '../utils/NewsAPI';
 
 export default class Articles extends React.Component {
     constructor(props) {
@@ -31,7 +30,7 @@ export default class Articles extends React.Component {
         event.preventDefault();
         const source = this.props.source
         const value = event.target.value;
-        NewsAPI.getNewsArticle(source, value)
+        NewsActions.getNewsArticles(source, value)
         console.log(source, value)
     }
 
