@@ -3,3 +3,4 @@ coverage/
 .DS_Store
 dist/*.js
 dist/*.json
+.env

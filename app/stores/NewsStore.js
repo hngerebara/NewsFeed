@@ -6,22 +6,16 @@ import AppDispatcher from "../dispatcher/AppDispatcher.js";
 
 // Define the Articles store as an empty array
 const _articles = {
-  list: [], source: '', sortBy: ''
+  list: [], 
+  source: '', 
+  sortBy: ''
 };
 
-
+// Define the Store with emitter to listen for change
 const NewsStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   addChangeListener(cb) {
     this.on(EventConstants.CHANGE_EVENT, cb);
-  },
-
-  addClickListener(cb){
-      this.on(EventConstants.CLICK_EVENT, cb);
-  },
-
-  removeClickListener(cb){
-        this.removeListener(EventConstants.CLICK_EVENT, cb);
   },
 
   removeChangeListener(cb) {
@@ -30,14 +24,12 @@ const NewsStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   getAll(){
     return _articles.list;
-    
   }
 });
 
-
+// Store registers with dispatcher to handle actions.
 AppDispatcher.register(payload => {
-    //const action = payload.action;
-      
+
     switch (payload.actionType){
         case NewsConstants.GET_NEWS_ARTICLE:
             if (_articles.list.length > 0) _articles.list = [];
@@ -49,7 +41,6 @@ AppDispatcher.register(payload => {
         default:
             return true;
     }
-
 });
 
 
