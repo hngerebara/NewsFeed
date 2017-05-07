@@ -1,18 +1,7 @@
-import  { Dispatcher }  from 'flux';
-import ObjectAssign from 'object-assign';
-import NewsConstants from "../constants/NewsConstants";
+import { Dispatcher } from 'flux';
 
-const AppDispatcher = ObjectAssign( new Dispatcher(), {
-   handleViewAction(action) {
-       this.dispatch({
-           action
-       })
-   }
-});
-
+// Create dispatcher instance
+const AppDispatcher = new Dispatcher();
 
 export default AppDispatcher;
-
-
-
 

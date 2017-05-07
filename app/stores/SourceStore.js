@@ -37,11 +37,12 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(payload => {
-    const action = payload.action;
-    switch (action.actionType){
+    //const action = payload.action;
+    console.log(payload.response,"data in source store")
+    switch (payload.actionType){
         case NewsConstants.GET_NEWS_SOURCES:
             if (_sources.list.length > 0) _sources.list = [];
-            _sources.list.push(action.response.sources);
+            _sources.list.push(payload.response);
             SourceStore.emit(EventConstants.CHANGE_EVENT);
             break;
 
