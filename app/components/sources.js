@@ -15,14 +15,15 @@ export default class Sources extends React.Component {
         super(props);
         this.state = {
             sources: [],
-            sortBysAvailable: []
+            sortBysAvailable: ['top'],
+            sourceName: 'CNN'
         };
 
         this._onLoad = this._onLoad.bind(this);
         this._onChange = this._onChange.bind(this);
         this.OnFilterChange = this.OnFilterChange.bind(this);
 
-        this.defaultId = 'cnn';
+        this.defaultId = 'CNN';
     }
 
     componentDidMount() {
@@ -44,7 +45,8 @@ export default class Sources extends React.Component {
         this.setState({ sources: SourceStore.getAll() });
     }
 
-    _onChange(sourceId, sortBysAvailable) {
+    _onChange(sourceId, sortBysAvailable, sourceName) {
+        this.setState({sourceName: sourceName, sortBysAvailable: sortBysAvailable})
         NewsActions.getNewsArticles(sourceId, sortBysAvailable)
     }
 
@@ -85,14 +87,14 @@ export default class Sources extends React.Component {
                     <h5>Please select News Source </h5>
                     <input type="text" className="form-control" placeholder="Search News...."
                          onChange={this.OnFilterChange} />
-                    <div>
+                    <div className="source-list">
                         { allSources && allSources.map((item, index) => <SourceItem key={index} value={item.id} name={item.name}
-                          onclick={() => this._onChange(item.id, item.sortBysAvailable)} />)
+                          onclick={() => this._onChange(item.id, item.sortBysAvailable, item.name)} />)
                         }
                     </div>
                 </div>
                 <div className="col-lg-10">
-                    <Articles source={this.state.sourceId} sortParams={this.state.sortBysAvailable} />
+                    <Articles sourceId={this.state.sourceId} sourceName={this.state.sourceName} sortParams={this.state.sortBysAvailable} />
                 </div>
             </div>
         );

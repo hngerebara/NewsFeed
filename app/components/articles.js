@@ -39,7 +39,7 @@ export default class Articles extends React.Component {
  */
     onSort(event) {
         event.preventDefault();
-        const source = this.props.source
+        const source = this.props.sourceId;
         const value = event.target.value;
         NewsActions.getNewsArticles(source, value)
     }
@@ -56,6 +56,7 @@ export default class Articles extends React.Component {
 
         return (
             <div>
+                <label>Sort By</label>
                 <select
                     className="col-lg-3"
                     onChange={this.onSort.bind(this)}>
@@ -63,6 +64,7 @@ export default class Articles extends React.Component {
                 </select>
 
                 <div style={{ display: 'inline-block', width: '100%' }}>
+                <label>{this.props.sourceName}</label>
                     {rows}
                 </div>
             </div>

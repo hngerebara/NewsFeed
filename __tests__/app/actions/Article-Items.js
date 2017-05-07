@@ -27,7 +27,6 @@ export default class ArticleItem extends React.Component {
         }
 
         return (
-            // <label>{this.props.sourceId}</label>
             <article>
                 <div className="col-lg-12">
                     <h2><a href={this.props.item.url} target = "_blank">{this.props.item.title}</a></h2>
