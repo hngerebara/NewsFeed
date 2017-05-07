@@ -1,11 +1,21 @@
+
 * {
     margin: 0;
     padding: 0;
 }
-.landing{
-    background: #6897BB;
+.landing {
+    height:100%;
+    background: #e8cbc0; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(left, #e8cbc0, #a6afd4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #e8cbc0, #a6afd4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #e8cbc0, #a6afd4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #e8cbc0, #a6afd4); /* Standard syntax (must be last) */
+}
+.source-list{
+  height:80vh;
+  overflow: scroll;
+}
   
-  }
 .siteNav {
   margin-top: 20px;
   padding: 10px;
@@ -40,6 +50,26 @@
 }
 .sharetbn{
   float: left;
+}
+
+button{
+  border: none;
+   display: inline;
+   text-decoration: none;
+   float: right;
+   margin-bottom: 0;
+   width: 118px;
+   height: 38px;
+   font-family: 'Tahoma', Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   text-align: center;
+   line-height: 120%;
+   margin: 6px 19px 6px 34px;
+   border-radius: 8px;
+}
+
+button:focus {
+  outline: none
 }
 
 

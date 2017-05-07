@@ -120,8 +120,6 @@ export default class Login extends React.Component {
     else {
       return (
         <div>
-          
-            <div className="container">
             <div className="siteNav">
               <div className="siteTitle">
                 <h1>Hopeaz Newsfeed</h1>
@@ -136,8 +134,6 @@ export default class Login extends React.Component {
                     <button className="list-inline intro-social-buttons login_button"  onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
                   </div>
                 </div>
-              
-            </div>
           </div>
         </div>
       )};
