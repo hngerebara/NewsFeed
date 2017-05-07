@@ -17,7 +17,7 @@ var babelOptions = {
 };
 
 module.exports = {
-  entry: './app/index.js',
+  entry: './app/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js'
@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: babelOptions
@@ -43,7 +43,9 @@ module.exports = {
         loader: 'html-loader'
       }
     ]
-
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -60,7 +60,7 @@ export default class Articles extends React.Component {
                 <select
                     className="col-lg-3"
                     onChange={this.onSort.bind(this)}>
-                    {this.props.sortParams.map((param, index) => <option key={index} >{param}</option>)}
+                    {this.props.sortParams.map((param, index) => <option key={index} value={param}>{param}</option>)}
                 </select>
 
                 <div style={{ display: 'inline-block', width: '100%' }}>
