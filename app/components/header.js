@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./Header/nav";
+import NavBar from "./Header/Nav";
 
 /**
  * Header navigation component

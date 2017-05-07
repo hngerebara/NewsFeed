@@ -1,9 +1,9 @@
 import React from 'react';
 import SourceStore from '../stores/SourceStore';
-import SourceItem from './source-items';
+import SourceItem from './Source-Items';
 import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
-import Articles from '../components/articles';
+import Articles from '../components/Articles';
 
 /**
  * Main component to display both sources and articles
