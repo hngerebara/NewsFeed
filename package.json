@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js --progress --colors",
     "build:dev": "webpack -w --devtool cheap-module-eval-source-map",
     "build-css": "node-sass app/stylesheets -o app/stylesheets",
     "watch-css": "npm run build-css && node-sass app/stylesheets -o app/ --watch --recursive"
