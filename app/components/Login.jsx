@@ -9,7 +9,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import Main from '../components/containers/Main';
-import '../stylesheets/style.css';
+
 
 var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -32,12 +32,12 @@ export default class Login extends React.Component {
   // Fire base Initialization
   firebaseInit() {
     var config = {
-      apiKey: "AIzaSyCGXsjsRvXzoMIDJTFl68ddkQsZAsUyHpo",
-      authDomain: "newsfeedtest-165310.firebaseapp.com",
-      databaseURL: "https://newsfeedtest-165310.firebaseio.com",
-      projectId: "newsfeedtest-165310",
-      storageBucket: "newsfeedtest-165310.appspot.com",
-      messagingSenderId: "180657029449"
+      apiKey: FIREBASE_KEY,
+      authDomain: AUTH_DOMAIN,
+      databaseURL: DATABASE_URL,
+      projectId: PROJECT_ID,
+      storageBucket:STORAGE_BUCKET,
+      messagingSenderId: MESSAGE_SENDER_ID
     };
     firebase.initializeApp(config);
   }
@@ -48,7 +48,7 @@ export default class Login extends React.Component {
    */
   componentDidMount() {
     this.firebaseInit();
-    const token = localStorage.getItem('accssToken');
+    const token = localStorage.getItem('accessToken');
     if (token) {
       this.setState({
         loggedIn: true,
@@ -65,7 +65,7 @@ export default class Login extends React.Component {
     firebase.auth().signInWithPopup(provider).then(result => {
       var token = result.credential.accessToken;
       var user = result.user;
-      localStorage.setItem('accssToken', token);
+      localStorage.setItem('accessToken', token);
       //Login the user if no errors found
       this.setState({
         loggedIn: true,
