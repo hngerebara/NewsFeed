@@ -1,1 +1,1 @@
-gweb: npm build && npm start
+web: npm build && npm start
