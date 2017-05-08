@@ -1,12 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Articles from '../../../app/components/articles';
+import { shallow, mount} from 'enzyme';
+import Articles from '../../../app/components/Articles';
+import ArticleItem from '../../../app/components/ArticleItems';
 
-jest.dontMock('../../../app/components/articles');
+jest.dontMock('../../../app/components/Articles');
 
 describe("Displaying Articles", () => {
-    it ('renders 1 <Articles /> component', () => {
-        const articlesComponent = shallow(<Articles />);
-        expect(articlesComponent).toBe(true);
+    it ('renders 1 <ArticleItem/> component', () => {
+        const index = { sourceName: 'cnn' };
+        const item = { sourceId: 'cnn' }
+        const articlesComponent = mount(<ArticleItem key={index} index={index} item={item}/>);
     });
 });
