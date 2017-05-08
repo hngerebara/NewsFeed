@@ -95,9 +95,33 @@ $ npm start
 
 ```
 
+# Contribute
+---------------------------------------------------------------------------------------------------------------------------
 
+If you are interested in contributing to development of Newsify, that's really great!
 
-# Screenshot
+Follow the instructions below to contribute.
+
+Fork the repository
+
+Make your change
+
+Commit your change to your forked repository
+
+Provide a detailed commit description
+
+Create a pull request
+
+# FAQ
+----------------------------------------------------------------------------------------------------------------------
+
+What if I want to use another port?
+That's easy. In the root of the project. create a file named .env and add the following line to it:
+
+PORT=<your_desired_port>
+where <your_desired_port> is the port you want to use. So, if you want to use port 8080, you will write:
+
+PORT=8080
 ---------------------------------------------------------------------------------------------------------------------------
 
 
