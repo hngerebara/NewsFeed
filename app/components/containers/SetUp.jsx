@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "../app/components/header";
-import Footer from "../app/components/footer";
+import Header from "../app/components/Header";
+import Footer from "../app/components/Footer";
 
 export default class SetUp extends React.Component {
 
