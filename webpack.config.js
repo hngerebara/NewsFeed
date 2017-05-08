@@ -1,6 +1,5 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var babelOptions = {
   "presets": [
@@ -17,40 +16,38 @@ var babelOptions = {
 };
 
 module.exports = {
-  entry: './app/index.jsx',
+  entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js'
   },
   module: {
-    rules: [
+    loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: babelOptions
-      }, 
-      
-      {
+      }, {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
-      }, 
-       {
+        loader: 'style-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          "modules": true,
+          "localIdentName": '[name]__[local]___[hash:base64:5]'
+        }
+      }, {
         test: /\.html$/,
         loader: 'html-loader'
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
+
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/index.html'
-    }),
-    new ExtractTextPlugin("app/stylesheets/style.css")
+    })
   ]
 };

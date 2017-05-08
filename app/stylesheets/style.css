@@ -1,76 +1,58 @@
-
 * {
     margin: 0;
     padding: 0;
 }
-.landing {
-    height:100%;
-    background: #e8cbc0; /* For browsers that do not support gradients */    
-    background: -webkit-linear-gradient(left, #e8cbc0, #a6afd4); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #e8cbc0, #a6afd4); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #e8cbc0, #a6afd4); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #e8cbc0, #a6afd4); /* Standard syntax (must be last) */
-}
-.source-list{
-  height:80vh;
-  overflow: scroll;
-}
-  
 .siteNav {
-  margin-top: 20px;
+  margin-top: 100px;
   padding: 10px;
   margin-bottom: 20px;
-  color: #04519b;
+  min-height: 200px;
   width: 100%;
 }
-.mainBody {
-  width: 60%;
-  margin: 10px auto;
+ .headTest{
+  background:red;
+  min-width: 400px;
+  min-height: 300px;
+ }
+
+.sources-table{
+  width: 30%;
 }
-.mainBody .intro-message{
-  color: #04519b;
+
+.article-image{
+  height: 320px;
+  width: 560px;
 }
-.login_button{
-  background: #ff4500;
-  width: 220px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-}
-.mainBody  h1{
-  margin-bottom: 40px;
-}
-.mainBody h5{
-  margin-bottom: 20px;
-}
-.new-sources{
+
+.news-sources{
   cursor: pointer;
-  background: #04519b;
-  color: #fff;
-}
-.sharetbn{
-  float: left;
 }
 
-button{
-  border: none;
-   display: inline;
-   text-decoration: none;
-   float: right;
-   margin-bottom: 0;
-   width: 118px;
-   height: 38px;
-   font-family: 'Tahoma', Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   text-align: center;
-   line-height: 120%;
-   margin: 6px 19px 6px 34px;
-   border-radius: 8px;
+.container{
+  margin-left: 1px;
 }
 
-button:focus {
-  outline: none
+.scrollable-menu {
+  height: auto;
+  padding: 4px 17px;
 }
+.google {
+    border: 1px solid #95989A;
+    background: #fff no-repeat 25px;
+    background-size: 25px;
+}
+
+/* sorting css*/
+.news-articles{
+  cursor: pointer;
+}
+
+.Demo__some-network {
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+}
+
 
 
 

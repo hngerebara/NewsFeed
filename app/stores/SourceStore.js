@@ -30,26 +30,36 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
     this.removeListener(EventConstants.FILTER_CHANGE_EVENT, cb);
   },
 
-
+  //method to return all Sources
   getAll(){
     return _sources.list;
   },
 });
 
-// Store registers with dispatcher to handle actions.
 AppDispatcher.register(payload => {
-
-    switch (payload.actionType){
+    const action = payload.action;
+    switch (action.actionType){
         case NewsConstants.GET_NEWS_SOURCES:
             if (_sources.list.length > 0) _sources.list = [];
-            _sources.list.push(payload.response);
+            _sources.list.push(action.response.sources);
             SourceStore.emit(EventConstants.CHANGE_EVENT);
             break;
 
+        // // case NewsConstants.SOURCE_FILTER:
+        // //   const query = payload.action.response;
+        // //   _sources.filterlist = _sources.list.filter((source) => {
+        // //     if (source.name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+        // //       return source;
+        // //     }
+        // //   });
+        //     SourceStore.emit(EventConstants.FILTER_CHANGE_EVENT);
+            break;
+            
         default:
             return true;
     }
-});
+}
+);
 
 
 export default SourceStore;
