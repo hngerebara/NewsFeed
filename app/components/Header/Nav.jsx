@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from 'firebase';
-import reactfire from 'reactfire';
 
 export default class NavBar extends React.Component {
     render(){

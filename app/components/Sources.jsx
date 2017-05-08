@@ -1,6 +1,6 @@
 import React from 'react';
 import SourceStore from '../stores/SourceStore';
-import SourceItem from './Source-Items';
+import SourceItem from './SourceItems';
 import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
 import Articles from '../components/Articles';
@@ -16,7 +16,8 @@ export default class Sources extends React.Component {
         this.state = {
             sources: [],
             sortBysAvailable: ['top'],
-            sourceName: 'CNN'
+            sourceName: 'CNN',
+            sourceId: 'cnn'
         };
 
         this._onLoad = this._onLoad.bind(this);
@@ -46,7 +47,7 @@ export default class Sources extends React.Component {
     }
 
     _onChange(sourceId, sortBysAvailable, sourceName) {
-        this.setState({sourceName: sourceName, sortBysAvailable: sortBysAvailable})
+        this.setState({sourceId: sourceId, sourceName: sourceName, sortBysAvailable: sortBysAvailable})
         NewsActions.getNewsArticles(sourceId, sortBysAvailable)
     }
 
