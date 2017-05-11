@@ -1,12 +1,28 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
+import request from "superagent";
 import NewsActions from '../../../app/actions/NewsActions';
 
-describe('Action test', () => {
-  test('the data received is an araay of 70 sources', () => {
-  expect.assertions(1);
-  return getNewsSources().then(data => {
-    expect(data).toBe('array[70]');
+jest.dontMock('../../../app/actions/NewsActions');
+
+describe('Get Sources from api', () => {
+  let getNewsSources;
+
+  beforeEach(() => {
+    getNewsSources = sinon.spy();
+    let stubRequest = {
+       set: function() {return this},
+       query: function() {return this},
+       end: function() { return this},
+    };
+    sinon.stub(request, 'get').returns(stubRequest);
+    getNewsSources = sinon.stub(stubRequest, 'end');
   });
+
+  it('calls the success callback', () => {
+    getNewsSources();
+    expect(getNewsSources.callCount).toEqual(1);
   });
-});
+})
+

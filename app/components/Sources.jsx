@@ -20,8 +20,8 @@ export default class Sources extends React.Component {
             sourceId: 'cnn'
         };
 
-        this._onLoad = this._onLoad.bind(this);
-        this._onChange = this._onChange.bind(this);
+        this.onLoad = this.onLoad.bind(this);
+        this.onChange = this.onChange.bind(this);
         this.OnFilterChange = this.OnFilterChange.bind(this);
 
         this.defaultId = 'CNN';
@@ -29,12 +29,12 @@ export default class Sources extends React.Component {
 
     componentDidMount() {
         NewsActions.getNewsSources();
-        SourceStore.addChangeListener(this._onLoad);
+        SourceStore.addChangeListener(this.onLoad);
         NewsActions.getNewsArticles(this.defaultId, this.sortBy);
     }
 
     componentWillUnmount() {
-        SourceStore.removeChangeListener(this._onLoad);
+        SourceStore.removeChangeListener(this.onLoad);
     }
 
 /**
@@ -42,11 +42,11 @@ export default class Sources extends React.Component {
  * @returns {object} state
  * @description update state
  * */
-    _onLoad() {
+    onLoad() {
         this.setState({ sources: SourceStore.getAll() });
     }
 
-    _onChange(sourceId, sortBysAvailable, sourceName) {
+    onChange(sourceId, sortBysAvailable, sourceName) {
         this.setState({sourceId: sourceId, sourceName: sourceName, sortBysAvailable: sortBysAvailable})
         NewsActions.getNewsArticles(sourceId, sortBysAvailable)
     }
@@ -90,7 +90,7 @@ export default class Sources extends React.Component {
                          onChange={this.OnFilterChange} />
                     <div className="source-list">
                         { allSources && allSources.map((item, index) => <SourceItem key={index} value={item.id} name={item.name}
-                          onclick={() => this._onChange(item.id, item.sortBysAvailable, item.name)} />)
+                          onclick={() => this.onChange(item.id, item.sortBysAvailable, item.name)} />)
                         }
                     </div>
                 </div>
