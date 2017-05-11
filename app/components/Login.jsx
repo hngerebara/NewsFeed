@@ -5,13 +5,11 @@
     @license See file 'LICENSE.md' in this project.
  */
 
+import React from "react";
+import firebase from "firebase";
+import Main from "../components/containers/Main";
 
-import React from 'react';
-import firebase from 'firebase';
-import Main from '../components/containers/Main';
-
-
-var provider = new firebase.auth.GoogleAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
 
 /**
  * Class displaying Login Page
@@ -20,35 +18,35 @@ var provider = new firebase.auth.GoogleAuthProvider();
 
 export default class Login extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       loggedIn: false,
       user: {}
-    }
+    };
     this.loginPage = this.loginPage.bind(this);
     this.googleLogin = this.googleLogin.bind(this);
   }
 
   // Fire base Initialization
   firebaseInit() {
-    var config = {
+    const config = {
       apiKey: FIREBASE_KEY,
       authDomain: AUTH_DOMAIN,
       databaseURL: DATABASE_URL,
       projectId: PROJECT_ID,
-      storageBucket:STORAGE_BUCKET,
+      storageBucket: STORAGE_BUCKET,
       messagingSenderId: MESSAGE_SENDER_ID
     };
     firebase.initializeApp(config);
   }
 
-/**
+  /**
    * Invoked immediately after a component is mounted
    * @return {void} returns nothing
    */
   componentDidMount() {
     this.firebaseInit();
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem("accessToken");
     if (token) {
       this.setState({
         loggedIn: true,
@@ -57,38 +55,39 @@ export default class Login extends React.Component {
     }
   }
 
-/**
+  /**
    * Checks user credential
    * @param event
    */
   googleLogin(event) {
-    firebase.auth().signInWithPopup(provider).then(result => {
-      var token = result.credential.accessToken;
-      var user = result.user;
-      localStorage.setItem('accessToken', token);
-      //Login the user if no errors found
-      this.setState({
-        loggedIn: true,
-        user: user
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(result => {
+        const token = result.credential.accessToken;
+        const user = result.user;
+        localStorage.setItem("accessToken", token);
+        //Login the user if no errors found
+        this.setState({
+          loggedIn: true,
+          user: user
+        });
+      })
+      .catch(function(error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = error.credential;
+
+        if (error) {
+          return `${errorCode} ${errorMessage}`;
+        } else if (email || credential) {
+          return "Your email is already being used";
+        }
       });
-
-
-    }).catch(function (error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      var email = error.email;
-      var credential = error.credential;
-
-      if (error) {
-        return (`${errorCode} ${errorMessage}`);
-      } else if (email || credential) {
-        return ("Your email is already being used");
-      }
-
-    });
   }
 
-    /**
+  /**
    * Logs user out
    * @returns null
    * @param event
@@ -101,42 +100,40 @@ export default class Login extends React.Component {
         user: null
       });
     });
-
   }
- 
-   /**
+
+  /**
    * Show the Login Component
    * @return {jsx} Show the login component
    */
- 
+
   loginPage() {
     if (this.state.loggedIn) {
       return (
         <div>
-          <Main user={this.state.user} logout={this.logOut.bind(this)}/>
+          <Main user={this.state.user} logout={this.logOut.bind(this)} />
         </div>
       );
-    }
-    else {
+    } else {
       return (
-        <div>
-            <div className="siteNav">
-              <div className="siteTitle">
-                <h1>Hopeaz Newsfeed</h1>
+            <center><div className="main-body login-box col-md-12">
+              <div className="intro-message">
+                <h1>Welcome to Hopeaz news Feed Application</h1>
+                <h5>
+                  Please Login with your google account to view news from over 60 sources
+                </h5>
+
+                <button
+                  className="gplus btnz"
+                  onClick={this.googleLogin}>
+                  <i className="fa fa-google fa-fw" />
+                  <span >Login With Google</span>
+                </button>
               </div>
-          </div>
-              <div className="mainBody">
-                <div className="col-lg-12">
-                  <div className="intro-message">
-                    <h1>Welcome to Hopeaz news Feed Application</h1>
-                    <h5>Please Login with your google account to view news from over 60 sources</h5>
-                   
-                    <button className="list-inline intro-social-buttons login_button"  onClick={this.googleLogin}><i className="fa fa-google fa-fw"></i> <span className="network-name">Login With Google</span></button>
-                  </div>
-                </div>
-          </div>
-        </div>
-      )};
+            </div>
+            </center>
+      );
+    }
   }
   render() {
     return (

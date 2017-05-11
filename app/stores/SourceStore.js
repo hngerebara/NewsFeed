@@ -1,5 +1,5 @@
 import ObjectAssign from 'object-assign';
-import {EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants';
 import EventConstants from '../constants/EventConstants';
@@ -16,11 +16,11 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
     this.on(EventConstants.CHANGE_EVENT, cb);
   },
 
-  addClickListener(cb){
+  addClickListener(cb) {
     this.on(EventConstants.CLICK_EVENT, cb);
   },
 
-  removeClickListener(cb){
+  removeClickListener(cb) {
       this.removeListener(EventConstants.CLICK_EVENT, cb);
   },
 
@@ -29,7 +29,7 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
   },
 
 
-  getAll(){
+  getAll() {
     return sources.list;
   },
 });
@@ -37,7 +37,7 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
 // Store registers with dispatcher to handle actions.
 AppDispatcher.register(payload => {
 
-    switch (payload.actionType){
+    switch (payload.actionType) {
         case NewsConstants.GET_NEWS_SOURCES:
             if (sources.list.length > 0) sources.list = [];
             sources.list.push(payload.response);
