@@ -1,5 +1,5 @@
 import React from 'react';
-import Share from '../utils/Share';
+import Share from '../utils/share';
 let isoDate = require('iso-date');
 
 /**

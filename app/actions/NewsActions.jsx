@@ -1,7 +1,7 @@
 import AppDispatcher from "../dispatcher/AppDispatcher";
 import NewsConstants from "../constants/NewsConstants";
 import request from "superagent";
-import apikey from "../utils/Config";
+import apikey from "../utils/config";
 
 /**
  * Actions defined
