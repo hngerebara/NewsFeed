@@ -16,7 +16,7 @@ export default class NavBar extends React.Component {
         <div className="col-md-2">
           <button
             className="glyphicon glyphicon-log-out"
-            onClick={this.props.logout.bind(this)}>
+            onClick={this.props.logout}>
             Logout
           </button>
         </div>

@@ -14,8 +14,6 @@ describe("Sources component", () => {
   const SourceList = [
     { id: "abc-news-au", name: "ABC News (AU)" },
     { id: "yahoo", name: "Yahoo news" },
-    { id: "bella-niger", name: "Bella" },
-    { id: "news24", name: "24/7 news" }
   ];
 
   test("check if there is a change listener method", () => {
