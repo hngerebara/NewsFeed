@@ -4,14 +4,18 @@ import request from "superagent";
 import apikey from "../utils/config";
 
 /**
- * Actions defined
+ * Action defined to get sources
+ * @returns {object}
  */
 const NewsActions = {
   //Action to get News Articles
   getNewsSources: () => {
     request
       .get("https://newsapi.org/v1/sources")
-      .set({ Accept: "application/json", lang: "en" })
+      .set({
+        Accept: "application/json",
+        lang: "en"
+      })
       .end((err, response) => {
         if (err) console.error(err);
         if (response) {
@@ -23,11 +27,18 @@ const NewsActions = {
       });
   },
 
-  //Action to get News Articles
+  /**
+   * Action defined to get articles 
+   * @param {string} source, sortBy
+   * @returns {object}
+   */
   getNewsArticles(source, sortBy) {
     request
       .get(`https://newsapi.org/v1/articles?apiKey=${apikey.apikey}`)
-      .query({ source: source, sortBy: sortBy })
+      .query({
+        source: source,
+        sortBy: sortBy
+      })
       .end((err, response) => {
         if (err) console.error(err);
         if (response) {
