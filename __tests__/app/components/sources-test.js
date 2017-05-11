@@ -29,8 +29,7 @@ describe("Displaying Sources and Articles", () => {
       <Articles
         sourceName={sourceName}
         sourceId={sourceId}
-        sortParams={sortParams}
-      />
+        sortParams={sortParams}/>
     );
   });
 

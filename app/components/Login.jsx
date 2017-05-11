@@ -25,6 +25,7 @@ export default class Login extends React.Component {
     };
     this.loginPage = this.loginPage.bind(this);
     this.googleLogin = this.googleLogin.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
   // Fire base Initialization
