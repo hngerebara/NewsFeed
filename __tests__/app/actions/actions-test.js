@@ -6,7 +6,7 @@ import NewsActions from '../../../app/actions/NewsActions';
 
 jest.dontMock('../../../app/actions/NewsActions');
 
-describe('Get Sources from api', () => {
+describe('Get Articles from api', () => {
   let getNewsArticles;
 
   beforeEach(() => {

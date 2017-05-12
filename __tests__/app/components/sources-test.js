@@ -74,4 +74,10 @@ describe("Displaying Sources and Articles", () => {
     expect(wrapper).toBeDefined();
     expect(Sources.prototype.onChange).toExist;
   });
+  it("calls OnFilterChange function to search", () => {
+    spyOn(Sources.prototype, "OnFilterChange").and.callThrough();
+    const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
+    expect(Sources.prototype.OnFilterChange).toExist;
+  });
 });
