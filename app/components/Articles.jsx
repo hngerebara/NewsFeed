@@ -4,6 +4,7 @@ import NewsStore from "../stores/NewsStore";
 import SourceStore from "../stores/SourceStore";
 import NewsActions from "../actions/NewsActions";
 
+
 /**
  * Parent component for articles
  * @extends React.Component
