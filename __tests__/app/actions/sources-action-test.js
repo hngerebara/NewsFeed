@@ -7,22 +7,22 @@ import NewsActions from '../../../app/actions/NewsActions';
 jest.dontMock('../../../app/actions/NewsActions');
 
 describe('Get Sources from api', () => {
-  let getNewsArticles;
+  let getNewsSources;
 
   beforeEach(() => {
-    getNewsArticles = sinon.spy();
+    getNewsSources = sinon.spy();
     let stubRequest = {
        set: function() {return this},
-       query: function(source, sortBy) {return this},
+       query: function() {return this},
        end: function() { return this},
     };
     sinon.stub(request, 'get').returns(stubRequest);
-    getNewsArticles = sinon.stub(stubRequest, 'end');
+    getNewsSources = sinon.stub(stubRequest, 'end');
   });
 
   it('calls the success callback', () => {
-    getNewsArticles('cnn', 'top');
-    expect(getNewsArticles.callCount).toEqual(1);
+    getNewsSources();
+    expect(getNewsSources.callCount).toEqual(1);
   });
 })
 
