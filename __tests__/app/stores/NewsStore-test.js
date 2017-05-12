@@ -2,26 +2,20 @@ import React from "react";
 import { shallow } from "enzyme";
 import sinon from "sinon";
 import NewsActions from "../../../app/actions/NewsActions";
-import Sources from "../../../app/components/Sources";
-import SourceStore from "../../../app/stores/SourceStore";
+import Articles from "../../../app/components/Articles";
+import NewsStore from "../../../app/stores/NewsStore";
 import NewsConstants from "../../../app/constants/NewsConstants";
 import AppDispatcher from "../../../app/dispatcher/AppDispatcher";
 
 jest.dontMock("../../../app/dispatcher/AppDispatcher");
-jest.dontMock("../../../app/stores/SourceStore");
+jest.dontMock("../../../app/stores/NewsStore");
 
 describe("Sources component", () => {
   test("check if there is a change listener method", () => {
-    expect(SourceStore.addChangeListener).toExist;
+    expect(NewsStore.addChangeListener).toExist;
   });
   test("check if there is a remove change listener method", () => {
-    expect(SourceStore.removeChangeListener).toExist;
-  });
-  test("check if there is a Click listener method", () => {
-    expect(SourceStore.removeClickListener).toExist;
-  });
-  test("check if there is a CLick listener method", () => {
-    expect(SourceStore.addClickListener).toExist;
+    expect(NewsStore.removeChangeListener).toExist;
   });
 
   describe("change listener functions", () => {
@@ -29,14 +23,14 @@ describe("Sources component", () => {
       return "news";
     };
 
-    SourceStore.addChangeListener(callback);
-    SourceStore.removeChangeListener(callback);
-    expect(SourceStore.on).toExist;
+    NewsStore.addChangeListener(callback);
+    NewsStore.removeChangeListener(callback);
+    expect(NewsStore.on).toExist;
   });
 });
-describe("source store", () => {
+describe("News store", () => {
   it("it should initialize with no data", () => {
-    const noData = SourceStore.getAll();
+    const noData = NewsStore.getAll();
     expect(noData).tobeNull;
   });
 });
