@@ -1,12 +1,13 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Sources from "../../../app/components/Sources";
-import SourceItem from "../../../app/components/SourceItems";
-import Articles from "../../../app/components/Sources";
-import AppDispatcher from "../../../app/dispatcher/AppDispatcher";
-import NewsConstants from "../../../app/constants/NewsConstants";
+import sinon from 'sinon';
+import Sources from "../../app/components/Sources";
+import SourceItem from "../../app/components/SourceItems";
+import Articles from "../../app/components/Sources";
+import AppDispatcher from "../../app/dispatcher/AppDispatcher";
+import NewsConstants from "../../app/constants/NewsConstants";
 
-jest.dontMock("../../../app/components/Sources");
+jest.dontMock("../../app/components/Sources");
 
 describe("Displaying Sources and Articles", () => {
   const sourceName = { sourceName: "CNN" };
@@ -62,18 +63,34 @@ describe("Displaying Sources and Articles", () => {
     expect(Sources.prototype.componentDidMount).toHaveBeenCalledTimes(1);
   });
 
+  it("should check that the componentWillUnmount method is getting called", () => {
+    spyOn(Sources.prototype, "componentWillUnmount").and.callThrough();
+    const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
+    expect(Sources.prototype.componentWillUnmount).toHaveBeenCalledTimes(0);
+  });
+
+  it("should check that the componentDidMount method is getting called", () => {
+    spyOn(Sources.prototype, "componentDidMount").and.callThrough();
+    const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
+    expect(Sources.prototype.componentDidMount).toHaveBeenCalledTimes(1);
+  });
+
   it("calls `onload` function", () => {
     spyOn(Sources.prototype, "onLoad").and.callThrough();
     const wrapper = mount(<Sources />);
     expect(wrapper).toBeDefined();
     expect(Sources.prototype.onLoad).toExist;
   });
+
   it("calls onchange function when source is changed", () => {
     spyOn(Sources.prototype, "onChange").and.callThrough();
     const wrapper = mount(<Sources />);
     expect(wrapper).toBeDefined();
     expect(Sources.prototype.onChange).toExist;
   });
+
   it("calls OnFilterChange function to search", () => {
     spyOn(Sources.prototype, "OnFilterChange").and.callThrough();
     const wrapper = mount(<Sources />);

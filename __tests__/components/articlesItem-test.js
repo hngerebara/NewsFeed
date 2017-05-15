@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Articles from "../../../app/components/Articles";
-import ArticleItem from "../../../app/components/ArticleItems";
+import Articles from "../../app/components/Articles";
+import ArticleItem from "../../app/components/ArticleItems";
 
-jest.dontMock("../../../app/components/ArticleItems");
+jest.dontMock("../../app/components/ArticleItems");
 
 describe("Displaying Articles", () => {
   const index = { sourceName: "cnn" };

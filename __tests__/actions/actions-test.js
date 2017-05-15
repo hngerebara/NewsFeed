@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import request from "superagent";
-import NewsActions from '../../../app/actions/NewsActions';
+import NewsActions from '../../app/actions/NewsActions';
 
-jest.dontMock('../../../app/actions/NewsActions');
+jest.dontMock('../../app/actions/NewsActions');
 
 describe('Get Articles from api', () => {
   let getNewsArticles;

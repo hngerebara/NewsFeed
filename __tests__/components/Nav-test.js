@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import NavBar from "../../../app/components/Header/Nav";
+import NavBar from "../../app/components/Header/Nav";
 
 describe("Navigation component", () => {
   const wrapper = shallow(<NavBar />);

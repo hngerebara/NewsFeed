@@ -2,11 +2,12 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import sinon from "sinon";
 import request from "superagent";
-import NewsActions from "../../../app/actions/NewsActions";
-import AppDispatcher from "../../../app/dispatcher/AppDispatcher";
-import NewsConstants from "../../../app/constants/NewsConstants";
+import NewsActions from "../../app/actions/NewsActions";
+import AppDispatcher from "../../app/dispatcher/AppDispatcher";
+import NewsConstants from "../../app/constants/NewsConstants";
 
-jest.dontMock("../../../app/actions/NewsActions");
+jest.dontMock("../../app/actions/NewsActions");
+
 let getNewsSources;
 describe("Get Sources from api", () => {
   beforeEach(() => {

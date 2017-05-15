@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import Firebase from "firebase";
-import Login from "../../../app/components/Login";
+import Login from "../../app/components/Login";
 
-jest.dontMock("../../../app/components/Login");
+jest.dontMock("../../app/components/Login");
 
 describe("Login Component", () => {
   const wrapper = shallow(<Login />);
