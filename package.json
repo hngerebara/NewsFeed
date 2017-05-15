@@ -49,8 +49,6 @@
       "**/app/**.{js,jsx}",
       "!**/node_modules/**",
       "!**/app/components/Login.jsx",
-      "!**/app/actions/NewsActions.js",
-      "!**/app/components/Sources.jsx",
       "!**/app/index.jsx"
     ],
     "transform": {

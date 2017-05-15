@@ -1,14 +1,14 @@
 import React from "react";
 import { shallow } from "enzyme";
 import sinon from "sinon";
-import NewsActions from "../../../app/actions/NewsActions";
-import Sources from "../../../app/components/Sources";
-import SourceStore from "../../../app/stores/SourceStore";
-import NewsConstants from "../../../app/constants/NewsConstants";
-import AppDispatcher from "../../../app/dispatcher/AppDispatcher";
+import NewsActions from "../../app/actions/NewsActions";
+import Sources from "../../app/components/Sources";
+import SourceStore from "../../app/stores/SourceStore";
+import NewsConstants from "../../app/constants/NewsConstants";
+import AppDispatcher from "../../app/dispatcher/AppDispatcher";
 
-jest.dontMock("../../../app/dispatcher/AppDispatcher");
-jest.dontMock("../../../app/stores/SourceStore");
+jest.dontMock("../../app/dispatcher/AppDispatcher");
+jest.dontMock("../../app/stores/SourceStore");
 
 describe("Sources component", () => {
   test("check if there is a change listener method", () => {

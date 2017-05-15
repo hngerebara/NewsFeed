@@ -1,12 +1,12 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import Sources from "../../../app/components/Sources";
-import SourceItem from "../../../app/components/SourceItems";
-import Articles from "../../../app/components/Sources";
-import AppDispatcher from "../../../app/dispatcher/AppDispatcher";
-import NewsConstants from "../../../app/constants/NewsConstants";
+import Sources from "../../app/components/Sources";
+import SourceItem from "../../app/components/SourceItems";
+import Articles from "../../app/components/Sources";
+import AppDispatcher from "../../app/dispatcher/AppDispatcher";
+import NewsConstants from "../../app/constants/NewsConstants";
 
-jest.dontMock("../../../app/components/Sources");
+jest.dontMock("../../app/components/Sources");
 
 describe("Displaying Sources and Articles", () => {
   const sourceName = { sourceName: "CNN" };
@@ -53,6 +53,20 @@ describe("Displaying Sources and Articles", () => {
       actionType: NewsConstants.GET_NEWS_SOURCES,
       source
     });
+  });
+
+  it("should check that the componentDidMount method is getting called", () => {
+    spyOn(Sources.prototype, "componentDidMount").and.callThrough();
+    const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
+    expect(Sources.prototype.componentDidMount).toHaveBeenCalledTimes(1);
+  });
+
+  it("should check that the componentWillUnmount method is getting called", () => {
+    spyOn(Sources.prototype, "componentWillUnmount").and.callThrough();
+    const wrapper = mount(<Sources />);
+    expect(wrapper).toBeDefined();
+    expect(Sources.prototype.componentWillUnmount).toHaveBeenCalledTimes(0);
   });
 
   it("should check that the componentDidMount method is getting called", () => {
