@@ -1,5 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
+import sinon from 'sinon';
 import Sources from "../../app/components/Sources";
 import SourceItem from "../../app/components/SourceItems";
 import Articles from "../../app/components/Sources";
@@ -82,12 +83,14 @@ describe("Displaying Sources and Articles", () => {
     expect(wrapper).toBeDefined();
     expect(Sources.prototype.onLoad).toExist;
   });
+
   it("calls onchange function when source is changed", () => {
     spyOn(Sources.prototype, "onChange").and.callThrough();
     const wrapper = mount(<Sources />);
     expect(wrapper).toBeDefined();
     expect(Sources.prototype.onChange).toExist;
   });
+
   it("calls OnFilterChange function to search", () => {
     spyOn(Sources.prototype, "OnFilterChange").and.callThrough();
     const wrapper = mount(<Sources />);
