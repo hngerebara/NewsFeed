@@ -48,8 +48,8 @@
     "collectCoverageFrom": [
       "**/app/**.{js,jsx}",
       "!**/node_modules/**",
+      "!**/app/actions/NewsActions.js",
       "!**/app/components/Login.jsx",
-      "!**/app/components/Sources.jsx",
       "!**/app/index.jsx"
     ],
     "transform": {
