@@ -1,7 +1,5 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
-import request from "superagent";
+import request from 'superagent';
 import NewsActions from '../../app/actions/NewsActions';
 
 jest.dontMock('../../app/actions/NewsActions');
@@ -11,10 +9,16 @@ describe('Get Articles from api', () => {
 
   beforeEach(() => {
     getNewsArticles = sinon.spy();
-    let stubRequest = {
-       set: function() {return this},
-       query: function(source, sortBy) {return this},
-       end: function() { return this},
+    const stubRequest = {
+      set() {
+      return this;
+    },
+      query(source, sortBy) {
+      return this;
+    },
+      end() {
+      return this;
+    }
     };
     sinon.stub(request, 'get').returns(stubRequest);
     getNewsArticles = sinon.stub(stubRequest, 'end');
@@ -24,5 +28,4 @@ describe('Get Articles from api', () => {
     getNewsArticles('cnn', 'top');
     expect(getNewsArticles.callCount).toEqual(1);
   });
-})
-
+});

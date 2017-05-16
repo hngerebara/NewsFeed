@@ -97,4 +97,12 @@ describe("Displaying Sources and Articles", () => {
     expect(wrapper).toBeDefined();
     expect(Sources.prototype.OnFilterChange).toExist;
   });
+
+  it("should call on filter change function on input change", () => {
+    const wrapper = mount(<Sources />);
+    wrapper.setState({ sources: [source] });
+    expect(wrapper.find('SourceItem')).toHaveLength(2);
+    wrapper.find('input').simulate('change', {target: {value: 'ab'} });
+    expect(wrapper.find('SourceItem')).toHaveLength(1);
+  });
 });
