@@ -53,6 +53,7 @@
     "collectCoverageFrom": [
       "**/app/**.{js,jsx}",
       "!**/node_modules/**",
+      "!**/app/components/Login.jsx",
       "!**/app/index.jsx"
     ],
     "transform": {
