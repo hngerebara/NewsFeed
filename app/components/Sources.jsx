@@ -60,7 +60,7 @@ export default class Sources extends React.Component {
  * @returns [Array]
  */
   OnFilterChange(event) {
-    const allSources = SourceStore.getAll()[0];
+    const allSources = this.state.sources[0];
     const filterBy = event.target.value.toString().toLowerCase();
     const filteredList = [];
 

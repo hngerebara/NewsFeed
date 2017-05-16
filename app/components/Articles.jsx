@@ -11,7 +11,7 @@ import NewsActions from "../actions/NewsActions";
  */
 export default class Articles extends React.Component {
   /**
-    * @constructor 
+    * @constructor
     */
   constructor(props) {
     super(props);

@@ -31,6 +31,11 @@
     "coveralls": "^2.13.1",
     "css-loader": "^0.27.3",
     "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
     "jest-enzyme": "^3.0.1",
@@ -48,8 +53,6 @@
     "collectCoverageFrom": [
       "**/app/**.{js,jsx}",
       "!**/node_modules/**",
-      "!**/app/actions/NewsActions.js",
-      "!**/app/components/Login.jsx",
       "!**/app/index.jsx"
     ],
     "transform": {
