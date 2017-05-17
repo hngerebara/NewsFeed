@@ -31,11 +31,14 @@ Hopeaz NewsFeed was developed using the following :
 * Firebase 
 https://firebase.google.com/
 
-* React
-https://facebook.github.io/react/
+* React 
+React is front end library developed by Facebook. It's used for handling view layer for web and mobile apps. ReactJS allows us to create reusable UI components. It is currently one of the most popular JavaScript libraries and it has strong foundation and large community behind it. 
+Read more https://facebook.github.io/react/
 
 * Flux
-https://facebook.github.io/flux/
+Flux is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework.
+Webpack is a tool to build JavaScript modules in your application
+Read more https://facebook.github.io/flux/
 
 
 ### Getting Started
@@ -99,6 +102,7 @@ $ npm start
 ### Deployment
 ------------------------------------------------------------------------------------
 This application is deployed on heroku with this link https://newsfeedapp.herokuapp.com/
+
 ### Limitations
 ------------------------------------------------------------------------------------
 1. The user needs to redirect to the main news source website to view the article.
@@ -136,6 +140,11 @@ PORT=8080
 
 2. Where can i get an API Key to run the application on my local 
 Ans: Request an API key from (https://newsapi.org/)
+
+### Lisence
+----------------------------------------------------------------------------------------------------------------------
+
+This project is authored by Hope Ngerebara and is licensed for your use, modification and distribution under the MIT license. 
 
 
 
