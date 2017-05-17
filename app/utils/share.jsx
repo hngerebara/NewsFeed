@@ -29,7 +29,6 @@ function Share(props) {
 
   return (
     <div className="Demo__container">
-    
       <div className="Demo__some-network">
         <FacebookShareButton
           url={shareUrl}

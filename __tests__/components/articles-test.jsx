@@ -5,7 +5,11 @@ import Articles from '../../app/components/Articles';
 
 jest.dontMock('../../app/components/Articles');
 
-const wrapper = shallow(<Articles sortParams={['top']} />);
+const wrapper = shallow(<Articles
+  sourceName={'sourceName'}
+  sourceId={'sourceId'}
+  sortParams={['top']}
+/>);
 describe('Testing the html tags in Articles component', () => {
   it('Articles component to have 2 div tags', () => {
     expect(wrapper.find('div')).toHaveLength(2);

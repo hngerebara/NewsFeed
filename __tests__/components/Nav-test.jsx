@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import NavBar from '../../app/components/Header/Nav';
 
 describe('Navigation component', () => {
-  const wrapper = shallow(<NavBar />);
+  const wrapper = shallow(<NavBar logout={() => {}} />);
   it('it should render div elements',
   () => expect(wrapper.find('NavBar')).toExist);
 
