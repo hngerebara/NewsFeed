@@ -1,6 +1,5 @@
 import sinon from 'sinon';
 import request from 'superagent';
-import NewsActions from '../../app/actions/NewsActions';
 
 jest.dontMock('../../app/actions/NewsActions');
 
@@ -11,16 +10,18 @@ describe('Get Articles from api', () => {
     getNewsArticles = sinon.spy();
     const stubRequest = {
       set() {
-      return this;
-    },
-      query(source, sortBy) {
-      return this;
-    },
+        return this;
+      },
+      query() {
+        return this;
+      },
       end() {
-      return this;
-    }
+        return this;
+      }
     };
-    sinon.stub(request, 'get').returns(stubRequest);
+    sinon
+      .stub(request, 'get')
+      .returns(stubRequest);
     getNewsArticles = sinon.stub(stubRequest, 'end');
   });
 

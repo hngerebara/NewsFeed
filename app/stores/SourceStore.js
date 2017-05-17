@@ -10,8 +10,7 @@ const sources = {
   filterlist: []
 };
 
-const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
-
+const SourceStore = ObjectAssign({}, EventEmitter.prototype, {
   addChangeListener(cb) {
     this.on(EventConstants.CHANGE_EVENT, cb);
   },
@@ -21,33 +20,30 @@ const SourceStore = ObjectAssign( {}, EventEmitter.prototype, {
   },
 
   removeClickListener(cb) {
-      this.removeListener(EventConstants.CLICK_EVENT, cb);
+    this.removeListener(EventConstants.CLICK_EVENT, cb);
   },
 
   removeChangeListener(cb) {
     this.removeListener(EventConstants.CHANGE_EVENT, cb);
   },
 
-
   getAll() {
     return sources.list;
-  },
+  }
 });
 
 // Store registers with dispatcher to handle actions.
-AppDispatcher.register(payload => {
+AppDispatcher.register((payload) => {
+  switch (payload.actionType) {
+    case NewsConstants.GET_NEWS_SOURCES:
+      if (sources.list.length > 0) sources.list = [];
+      sources.list.push(payload.response);
+      SourceStore.emit(EventConstants.CHANGE_EVENT);
+      break;
 
-    switch (payload.actionType) {
-        case NewsConstants.GET_NEWS_SOURCES:
-            if (sources.list.length > 0) sources.list = [];
-            sources.list.push(payload.response);
-            SourceStore.emit(EventConstants.CHANGE_EVENT);
-            break;
-
-        default:
-            return true;
-    }
+    default:
+      return true;
+  }
 });
-
 
 export default SourceStore;

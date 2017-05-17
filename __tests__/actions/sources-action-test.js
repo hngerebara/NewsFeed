@@ -1,36 +1,31 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import sinon from "sinon";
-import request from "superagent";
-import NewsActions from "../../app/actions/NewsActions";
-import AppDispatcher from "../../app/dispatcher/AppDispatcher";
-import NewsConstants from "../../app/constants/NewsConstants";
+import sinon from 'sinon';
+import request from 'superagent';
 
-jest.dontMock("../../app/actions/NewsActions");
+jest.dontMock('../../app/actions/NewsActions');
 
 let getNewsSources;
-describe("Get Sources from api", () => {
+describe('Get Sources from api', () => {
   beforeEach(() => {
     getNewsSources = sinon.spy();
-    let stubRequest = {
-      set: function() {
+    const stubRequest = {
+      set() {
         return this;
       },
-      query: function() {
+      query() {
         return this;
       },
-      end: function() {
+      end() {
         return this;
       }
     };
-    sinon.stub(request, "get").returns(stubRequest);
-    getNewsSources = sinon.stub(stubRequest, "end");
+    sinon.stub(request, 'get').returns(stubRequest);
+    getNewsSources = sinon.stub(stubRequest, 'end');
   });
   afterEach(() => {
     getNewsSources.restore();
   });
 
-  it("calls the success callback", () => {
+  it('calls the success callback', () => {
     getNewsSources();
     expect(getNewsSources.callCount).toEqual(1);
   });

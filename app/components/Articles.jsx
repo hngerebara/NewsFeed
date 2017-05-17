@@ -1,9 +1,9 @@
-import React from "react";
-import ArticleItem from "./ArticleItems";
-import NewsStore from "../stores/NewsStore";
-import SourceStore from "../stores/SourceStore";
-import NewsActions from "../actions/NewsActions";
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import shortid from 'shortid';
+import ArticleItem from './ArticleItems';
+import NewsStore from '../stores/NewsStore';
+import NewsActions from '../actions/NewsActions';
 
 /**
  * Parent component for articles
@@ -11,8 +11,10 @@ import NewsActions from "../actions/NewsActions";
  */
 export default class Articles extends React.Component {
   /**
-    * @constructor
-    */
+   * Creates an instance of Articles.
+   * @param {any} props
+   * @memberOf Articles
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -20,23 +22,30 @@ export default class Articles extends React.Component {
     };
 
     this.loadArticles = this.loadArticles.bind(this);
+    this.onSort = this.onSort.bind(this);
   }
 
-  loadArticles() {
-    this.setState({ articles: NewsStore.getAll() });
-  }
-
+  /**
+   * @memberOf Articles
+   * @returns{null} null
+   */
   componentWillMount() {
     NewsStore.addChangeListener(this.loadArticles);
   }
 
+  /**
+   * @memberOf Articles
+   * @returns{null} null
+   */
   componentWillUnmount() {
     NewsStore.removeChangeListener(this.loadArticles);
   }
+
   /**
- * @param {String} onSort
- * @returns {Object}
- */
+   * @param {any} event
+   * @memberOf Articles
+   * @returns{null} null
+   */
   onSort(event) {
     event.preventDefault();
     const source = this.props.sourceId;
@@ -44,30 +53,50 @@ export default class Articles extends React.Component {
     NewsActions.getNewsArticles(source, value);
   }
 
+  /**
+   * @memberOf Articles
+   * @returns{Array} Array of objects
+   */
+  loadArticles() {
+    this.setState({
+      articles: NewsStore.getAll()
+    });
+  }
+
+  /**
+   * @returns {JSX} jsx
+   * @memberOf Articles
+   */
   render() {
-    let news = this.state.articles[0];
-    let rows = [];
-
-    if (news) {
-      news.map(function(item, index) {
-        rows.push(<ArticleItem key={index} index={index} item={item} />);
-      });
-    }
-
+    const news = this.state.articles[0];
     return (
       <div>
-        <label>Sort By</label>
-        <select className="col-lg-3" onChange={this.onSort.bind(this)}>
-          {this.props.sortParams.map((param, index) => (
-            <option key={index} value={param}>{param}</option>
+        <label htmlFor="sortBy">Sort By</label>
+        <select className="col-lg-3" onChange={this.onSort}>
+          {this.props.sortParams.map(param => (
+            <option key={shortid.generate()} value={param}>{param}</option>
           ))}
         </select>
 
-        <div style={{ display: "inline-block", width: "100%" }}>
-          <label>{this.props.sourceName}</label>
-          {rows}
+        <div
+          style={{
+            display: 'inline-block',
+            width: '100%'
+          }}
+        >
+          <label htmlFor="sourcename">{this.props.sourceName}</label>
+
+          {news && news.map(item => (
+            <ArticleItem key={shortid.generate()} item={item} />
+            ))}
         </div>
       </div>
     );
   }
 }
+
+Articles.propTypes = {
+  sourceId: PropTypes.string.isRequired,
+  sortParams: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sourceName: PropTypes.string.isRequired
+};
