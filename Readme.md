@@ -10,7 +10,7 @@ A front-end application that displays a list of recent worldwide news and is Pow
 
 Created using React JS and Flux Architecture
 
-### Table of Contents
+## Table of Contents
 ------------------------------------------------------------------------------
 * Application features
 * Development and documentation to specific technology
@@ -38,7 +38,7 @@ https://facebook.github.io/react/
 https://facebook.github.io/flux/
 
 
-# Getting Started
+### Getting Started
 ---------------------------------------------------------------------------------------------------------------------------
 Follow the steps below to run this project on your computer:
 #### Setup
@@ -96,33 +96,46 @@ $ npm start
 └── assets                   # images used
 ```
 
-# Contribute
+### Deployment
+------------------------------------------------------------------------------------
+This application is deployed on heroku with this link https://newsfeedapp.herokuapp.com/
+### Limitations
+------------------------------------------------------------------------------------
+1. The user needs to redirect to the main news source website to view the article.
+2. Limited test coverage
+3. Users need to have a google account to login in
+
+
+### Contribute
 ---------------------------------------------------------------------------------------------------------------------------
 
 If you are interested in contributing to development of Newsify, that's really great!
 
 Follow the instructions below to contribute.
 
-Fork the repository
+* Fork the repository
 
-Make your change
+* Make your change
 
-Commit your change to your forked repository
+* Commit your change to your forked repository
 
-Provide a detailed commit description
+* Provide a detailed commit description
 
-Create a pull request
+* Create a pull request
 
-# FAQ
+### FAQ
 ----------------------------------------------------------------------------------------------------------------------
 
-What if I want to use another port?
+1. What if I want to use another port?
 That's easy. In the root of the project. create a file named .env and add the following line to it:
 
 PORT=<your_desired_port>
 where <your_desired_port> is the port you want to use. So, if you want to use port 8080, you will write:
 
 PORT=8080
+
+2. Where can i get an API Key to run the application on my local 
+Ans: Request an API key from (https://newsapi.org/)
 
 
 
