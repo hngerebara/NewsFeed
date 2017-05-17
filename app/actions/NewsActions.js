@@ -1,6 +1,6 @@
+import request from 'superagent';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants';
-import request from 'superagent';
 import apikey from '../utils/config';
 
 /**
@@ -28,8 +28,9 @@ const NewsActions = {
   },
 
   /**
-   * Action defined to get articles
-   * @param {string} source, sortBy
+   * @description Action defined to get articles
+   * @param {any} source
+   * @param {any} sortBy
    * @returns {object}
    */
   getNewsArticles(source, sortBy) {

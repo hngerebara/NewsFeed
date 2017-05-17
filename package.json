@@ -82,6 +82,7 @@
     "jest-cli": "^19.0.2",
     "lodash": "^4.17.4",
     "object-assign": "^4.1.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-bootstrap": "^0.31.0",
@@ -89,6 +90,7 @@
     "react-router": "^2.8.1",
     "react-share": "^1.13.2",
     "reactfire": "^1.0.0",
+    "shortid": "^2.2.8",
     "superagent": "^3.5.2",
     "webpack-dev-server": "^2.4.2"
   }

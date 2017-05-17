@@ -1,21 +1,20 @@
-const React = require("react");
+import React from 'react';
 
 /**
- * Footer compoonent
+ * @description Footer component
  */
-export default class Footer extends React.Component {
-  render() {
-    return (<footer>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <p className="copyright text-muted small">
-                Copyright © Andela 2017. All Rights Reserved
-              </p>
-            </div>
+const Footer = () => {
+  return (
+    <footer>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <p className="copyright text-muted small">
+              Copyright © Andela 2017. All Rights Reserved
+            </p>
           </div>
         </div>
-      </footer>
-    );
-  }
-}
+      </div>
+    </footer>);
+};
+export default Footer;

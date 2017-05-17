@@ -1,15 +1,22 @@
-import React from "react";
-import NavBar from "./Header/Nav";
+import React from 'react';
+import PropTypes from 'prop-types';
+import NavBar from './Header/Nav';
 
 /**
- * Header navigation component
+ * @description Header navigation component
  */
-export default class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <NavBar logout={this.props.logout} />
-      </div>
-    );
-  }
-}
+
+const Header = (props) => {
+  return (
+    <div>
+      <NavBar logout={props.logout} />
+    </div>
+  );
+};
+
+
+Header.propTypes = {
+  logout: PropTypes.func.isRequired
+};
+
+export default Header;

@@ -1,20 +1,25 @@
-import React from "react";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Sources from "../../components/Sources";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Sources from '../../components/Sources';
 
 /**
  * Container of the news page.
  * @extends React.Component
  */
-export default class Main extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header logout={this.props.logout} />
-        <Sources />
-        <Footer />
-      </div>
-    );
-  }
-}
+const Main = (props) => {
+  return (
+    <div>
+      <Header logout={props.logout} />
+      <Sources />
+      <Footer />
+    </div>
+  );
+};
+
+Main.propTypes = {
+  logout: PropTypes.func.isRequired
+};
+
+export default Main;

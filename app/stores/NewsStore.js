@@ -1,14 +1,14 @@
-import NewsConstants from "../constants/NewsConstants";
-import ObjectAssign from "object-assign";
-import { EventEmitter } from "events";
-import EventConstants from "../constants/EventConstants";
-import AppDispatcher from "../dispatcher/AppDispatcher";
+import ObjectAssign from 'object-assign';
+import { EventEmitter } from 'events';
+import NewsConstants from '../constants/NewsConstants';
+import EventConstants from '../constants/EventConstants';
+import AppDispatcher from '../dispatcher/AppDispatcher';
 
 // Define the Articles store as an empty array
-const _articles = {
+const articles = {
   list: [],
-  source: "",
-  sortBy: ""
+  source: '',
+  sortBy: ''
 };
 
 // Define the Store with emitter to listen for change
@@ -22,18 +22,18 @@ const NewsStore = ObjectAssign({}, EventEmitter.prototype, {
   },
 
   getAll() {
-    return _articles.list;
+    return articles.list;
   }
 });
 
 // Store registers with dispatcher to handle actions.
-AppDispatcher.register(payload => {
+AppDispatcher.register((payload) => {
   switch (payload.actionType) {
     case NewsConstants.GET_NEWS_ARTICLE:
-      if (_articles.list.length > 0) _articles.list = [];
-      _articles.list.push(payload.response.articles);
-      _articles.source = payload.response.source;
-      _articles.sortBy = payload.response.sortBy;
+      if (articles.list.length > 0) articles.list = [];
+      articles.list.push(payload.response.articles);
+      articles.source = payload.response.source;
+      articles.sortBy = payload.response.sortBy;
       NewsStore.emit(EventConstants.CHANGE_EVENT);
       break;
     default:
