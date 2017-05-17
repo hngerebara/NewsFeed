@@ -1,8 +1,6 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
-import { ShareButtons,ShareCounts,generateShareIcon } from 'react-share';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
-import request from "superagent";
+import { shallow } from 'enzyme';
 import Share from '../app/utils/share';
 
 jest.dontMock('../app/utils/share');
