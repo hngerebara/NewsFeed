@@ -2,7 +2,6 @@
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 [![Coverage Status](https://coveralls.io/repos/github/andela-hngerebara/NewsFeed/badge.svg?branch=develop)](https://coveralls.io/github/andela-hngerebara/NewsFeed?branch=develop)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-[![Coverage Status](https://coveralls.io/repos/github/andela-hngerebara/NewsFeed/badge.svg?branch=develop)](https://coveralls.io/github/andela-hngerebara/NewsFeed?branch=develop)
 
 
 # Hopeaz NewsFeed Application 
@@ -11,15 +10,24 @@ A front-end application that displays a list of recent worldwide news and is Pow
 
 Created using React JS and Flux Architecture
 
-# Development
+### Table of Contents
+------------------------------------------------------------------------------
+* Application features
+* Development and documentation to specific technology
+* Getting Started
+* Structure
 
-Hopeaz NewsFeed was developed using the following :
-* [Firebase] 
-* [React] 
-* [Flux] 
 
-# Documentation related to specific technology
+
+### Application Features
+---------------------------------------------------------------------------------------------------------------------------
+* User Authentication - Users are authenticated and validated using firebase 
+* View News from over 60 Sources
+
+### Development and Documentation related to specific technology
 -------------------------------------------------------------------------------------------------------------------------
+Hopeaz NewsFeed was developed using the following :
+
 * Firebase 
 https://firebase.google.com/
 
@@ -30,18 +38,10 @@ https://facebook.github.io/react/
 https://facebook.github.io/flux/
 
 
-# Application Features
----------------------------------------------------------------------------------------------------------------------------
-#### User Authentication
-
-Users are authenticated and validated using firebase 
-
-#### View News from over 60 Sources
-
 # Getting Started
 ---------------------------------------------------------------------------------------------------------------------------
 Follow the steps below to run this project on your computer:
-## Setup
+#### Setup
 * Clone the repo 
 
 ```sh
@@ -58,12 +58,12 @@ $ git clone https://github.com/andela-hngerebara/NewsFeed.git
 $ npm install
 ```
 
-## Launching
+#### Launching
 ```sh
 $ npm start
 ```
 
-# Structure
+### Structure
 ---------------------------------------------------------------------------------------------------------------------------
 ```sh
 ├── __tests__                # Unit tests
@@ -71,11 +71,15 @@ $ npm start
 |   ├── actions          
 │   │   ├── newsActions      # news actions      
 │   ├── components           # All Components
-│   │   ├── header           # Contains the Navigation and Title
-│   │   ├── sources          # Mounts news sources and associated articles
-│   │   ├── footer           # displays the footer
-│   │   ├── articles         # mounts articles here to be transfered to the sources component
-│   ├── constants            # 
+|   |   ├── Main             # Apps Main page
+│   │   ├── Header           # Contains the Navigation and Title
+│   │   ├── ArticleItems     
+│   │   ├── Article          # mounts articles here to be transfered to the sources component 
+│   │   ├── Footer           # displays the footer
+│   │   ├── Login            # Has the login component
+│   │   ├── Sources          # Mounts news sources and associated articles
+│   │   ├── SourceItem         
+│   ├── constants            
 │   │   ├── EventConstants   # Defines the Change and click event constants
 │   │   ├── NewsConstants    # Defines the get articles and get sources constants
 │   ├── dispatcher           # 
@@ -85,17 +89,11 @@ $ npm start
 │   │   ├── SourceStore      # News source store
 │   ├── stylesheets          # Application-wide styles 
 │   ├── Utils                # 
-│   │   ├── config           # Api key
-│   │   ├── newsAPI          # API request
 │   │   ├── share            # social media sharing
 │   ├── index.html           # App Html file
 │   ├── login                # Google login Page
 │   └── index                # Application rendering
 └── assets                   # images used
-├── pages                    # Application route definitions
-    ├── main                 # Apps Main page
-    ├── setUp                # Explain the setUp steps in detail
-
 ```
 
 # Contribute
