@@ -1,19 +1,28 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
- * Class to hold source itemms
- * @extends React.Component
+ * @description Class to hold source itemms
+ * @class SourceItem
+ * @extends {React.Component}
  * @return {*} returns to the parent
  */
-export default class SourceItem extends React.Component {
-  render() {
-    return (
-      <option
-        className="list-group-item new-sources"
-        value={this.props.value}
-        onClick={this.props.onclick}>
-        {this.props.name}
-      </option>
-    );
-  }
-}
+
+const SourceItem = props => (
+  <option
+    className="list-group-item new-sources"
+    value={props.value}
+    onClick={props.onclick}
+  >
+    {props.name}
+  </option>
+  );
+
+SourceItem.propTypes = {
+  value: PropTypes.string.isRequired,
+  onclick: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
+};
+
+
+export default SourceItem;
