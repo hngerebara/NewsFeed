@@ -2,6 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 [![Coverage Status](https://coveralls.io/repos/github/andela-hngerebara/NewsFeed/badge.svg?branch=develop)](https://coveralls.io/github/andela-hngerebara/NewsFeed?branch=develop)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![Coverage Status](https://coveralls.io/repos/github/andela-hngerebara/NewsFeed/badge.svg?branch=develop)](https://coveralls.io/github/andela-hngerebara/NewsFeed?branch=develop)
 
 
 # Hopeaz NewsFeed Application 
