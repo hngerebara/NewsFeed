@@ -144,7 +144,7 @@ Ans: Request an API key from (https://newsapi.org/)
 ### Lisence
 ----------------------------------------------------------------------------------------------------------------------
 
-This project is authored by https://google.com/search?q=Hope+Ngerebara and is licensed for your use, modification and distribution under the MIT license. 
+This project is authored by <a href="https://google.com/search?q=Hope+Ngerebara">Hope Ngerebara</a> and is licensed for your use, modification and distribution under the MIT license. 
 
 
 
