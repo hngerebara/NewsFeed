@@ -10,7 +10,6 @@ import NewsActions from '../actions/NewsActions';
  * @extends React.Component
  */
 export default class Articles extends React.Component {
-
   /**
    * Creates an instance of Articles.
    * @param {any} props
@@ -28,22 +27,24 @@ export default class Articles extends React.Component {
 
   /**
    * @memberOf Articles
+   * @returns{null} null
    */
   componentWillMount() {
     NewsStore.addChangeListener(this.loadArticles);
   }
 
-
   /**
    * @memberOf Articles
+   * @returns{null} null
    */
   componentWillUnmount() {
     NewsStore.removeChangeListener(this.loadArticles);
   }
 
-   /**
+  /**
    * @param {any} event
    * @memberOf Articles
+   * @returns{null} null
    */
   onSort(event) {
     event.preventDefault();
@@ -54,6 +55,7 @@ export default class Articles extends React.Component {
 
   /**
    * @memberOf Articles
+   * @returns{Array} Array of objects
    */
   loadArticles() {
     this.setState({
@@ -61,10 +63,8 @@ export default class Articles extends React.Component {
     });
   }
 
-
-
   /**
-   * @returns JSX
+   * @returns {JSX} jsx
    * @memberOf Articles
    */
   render() {
@@ -73,8 +73,8 @@ export default class Articles extends React.Component {
       <div>
         <label htmlFor="sortBy">Sort By</label>
         <select className="col-lg-3" onChange={this.onSort}>
-          {this.props.sortParams.map((param, index) => (
-            <option key={index} value={param}>{param}</option>
+          {this.props.sortParams.map(param => (
+            <option key={shortid.generate()} value={param}>{param}</option>
           ))}
         </select>
 
@@ -85,9 +85,10 @@ export default class Articles extends React.Component {
           }}
         >
           <label htmlFor="sourcename">{this.props.sourceName}</label>
-          {
-            news && news.map(item => <ArticleItem key={shortid.generate()} item={item} />)
-          }
+
+          {news && news.map(item => (
+            <ArticleItem key={shortid.generate()} item={item} />
+            ))}
         </div>
       </div>
     );

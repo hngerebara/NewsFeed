@@ -7,10 +7,10 @@ import Footer from '../../app/components/Footer';
 jest.dontMock('../../app/components/containers/Main');
 
 describe('App Component', () => {
-  const wrapper = mount(<Main />);
+  const wrapper = mount(<Main logout={() => {}} />);
   it('renders without crashing', () => {
     const div = document.createElement('app');
-    ReactDOM.render(<Main />, div);
+    ReactDOM.render(<Main logout={() => {}} />, div);
   });
 
   it('should render a footer component', () => {

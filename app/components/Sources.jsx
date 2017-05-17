@@ -37,8 +37,9 @@ export default class Sources extends React.Component {
   }
 
   /**
+   * @description claled to ensure sources is properly loaded
    * @memberOf Sources
-   * @returns {Array}
+   * @returns {undefined} no return value
    */
   componentDidMount() {
     NewsActions.getNewsSources();
@@ -48,6 +49,7 @@ export default class Sources extends React.Component {
 
   /**
    * @memberOf Sources
+   * @returns {null} null
    */
   componentWillUnmount() {
     SourceStore.removeChangeListener(this.onLoad);
@@ -70,6 +72,7 @@ export default class Sources extends React.Component {
    * @param {any} sortBysAvailable
    * @param {any} sourceName
    * @memberOf Sources
+   * @returns {undefined} no return value
    */
   onChange(sourceId, sortBysAvailable, sourceName) {
     this.setState({ sourceId, sourceName, sortBysAvailable });
@@ -77,9 +80,10 @@ export default class Sources extends React.Component {
   }
 
   /**
- * @param {String} onFilterhange
- * @returns [Array]
- */
+   * @memberOf Sources
+   * @param {any} event
+   * @returns {undefined} no return value
+   */
   OnFilterChange(event) {
     const allSources = this.state.sources[0];
     const filterBy = event
@@ -92,7 +96,7 @@ export default class Sources extends React.Component {
     if (!event.target.value) {
       this.setState({ sources: allSources });
     } else {
-      for (let index = 0; index < allSources.length; index + 1) {
+      for (let index = 0; index < allSources.length; index += 1) {
         const value = allSources[index].name;
         if (new RegExp(filterBy).test(value.toLowerCase())) {
           filteredList.push(allSources[index]);
@@ -102,9 +106,11 @@ export default class Sources extends React.Component {
     }
   }
 
-  /**
- * Renders {jsx}
- */
+ /**
+   * @description renders the react component
+   * @memberof Sources
+   * @returns {*} returns element
+   */
   render() {
     const allSources = this.state.sources[0];
     return (
@@ -115,13 +121,15 @@ export default class Sources extends React.Component {
             type="text"
             className="form-control"
             placeholder="Search News...."
-            onChange={this.OnFilterChange} />
+            onChange={this.OnFilterChange}
+          />
           <div className="source-list">
             {allSources && allSources.map(item => (<SourceItem
               key={item.id}
               value={item.id}
               name={item.name}
-              onclick={() => this.onChange(item.id, item.sortBysAvailable, item.name)}
+              onclick={() => this.onChange(item.id,
+                item.sortBysAvailable, item.name)}
             />))}
           </div>
         </div>
@@ -129,7 +137,8 @@ export default class Sources extends React.Component {
           <Articles
             sourceId={this.state.sourceId}
             sourceName={this.state.sourceName}
-            sortParams={this.state.sortBysAvailable} />
+            sortParams={this.state.sortBysAvailable}
+          />
         </div>
       </div>
     );

@@ -8,11 +8,12 @@ import PropTypes from 'prop-types';
  * @return {*} returns to the parent
  */
 
-const SourceItem = (props) => (
+const SourceItem = props => (
   <option
     className="list-group-item new-sources"
     value={props.value}
-    onClick={props.onclick}>
+    onClick={props.onclick}
+  >
     {props.name}
   </option>
   );

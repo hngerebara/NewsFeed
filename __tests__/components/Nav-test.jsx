@@ -10,7 +10,7 @@ describe('Navigation component', () => {
   it('it should have a logout button',
   () => expect(wrapper.find('button')).toExist);
 
-  it('it should have the home link ', 
+  it('it should have the home link ',
   () => expect(wrapper.find('li')).toExist);
 
   it('it should have 2 div tags ',

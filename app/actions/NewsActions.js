@@ -1,7 +1,7 @@
+/* eslint-disable no-undef */
 import request from 'superagent';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants';
-import apikey from '../utils/config';
 
 /**
  * Action defined to get sources
@@ -17,7 +17,6 @@ const NewsActions = {
         lang: 'en'
       })
       .end((err, response) => {
-        if (err) alert(err);
         if (response) {
           AppDispatcher.dispatch({
             actionType: NewsConstants.GET_NEWS_SOURCES,
@@ -28,20 +27,20 @@ const NewsActions = {
   },
 
   /**
+   *
    * @description Action defined to get articles
    * @param {any} source
    * @param {any} sortBy
-   * @returns {object}
+   * @returns {Array} retuns an array of objects
    */
   getNewsArticles(source, sortBy) {
     request
-      .get(`https://newsapi.org/v1/articles?apiKey=${apikey.apikey}`)
+      .get(`https://newsapi.org/v1/articles?apiKey=${NEWSAPI_KEY}`)
       .query({
         source,
         sortBy
       })
       .end((err, response) => {
-        if (err) alert(err);
         if (response) {
           AppDispatcher.dispatch({
             actionType: NewsConstants.GET_NEWS_ARTICLE,

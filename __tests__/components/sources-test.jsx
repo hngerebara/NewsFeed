@@ -77,7 +77,7 @@ describe('Displaying Sources and Articles', () => {
     wrapper.setState({ sources: [source] });
     wrapper.update();
     expect(wrapper.find('SourceItem')).toHaveLength(2);
-    // wrapper.find('input').simulate('change', { target: { value: 'ab' } });
+    wrapper.find('input').simulate('change', { target: { value: 'ab' } });
     expect(wrapper.find('SourceItem')).toHaveLength(1);
   });
 });

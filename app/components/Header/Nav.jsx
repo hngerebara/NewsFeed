@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const NavBar = (props) => (
+const NavBar = props => (
   <nav className="navbar navbar-inverse col-md-12">
     <div className="container-fluid col-md-10">
       <div className="navbar-header navbar-brand">
@@ -9,7 +9,7 @@ const NavBar = (props) => (
       </div>
       <ul className="nav navbar-nav">
         <li className="active">
-          <a href="#">Home</a>
+          <a>Home</a>
         </li>
       </ul>
     </div>

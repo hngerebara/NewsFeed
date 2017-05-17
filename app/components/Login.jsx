@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
     @overview - NewsFeed Application that consumes
     www.newsapi.org api to display news sources based on selction
@@ -10,6 +11,23 @@ import firebase from 'firebase';
 import Main from '../components/containers/Main';
 
 const provider = new firebase.auth.GoogleAuthProvider();
+
+/**
+   * @description Fire base Initialization
+   * @memberOf Login
+   * @returns {void}
+   */
+const firebaseInit = () => {
+  const config = {
+    apiKey: FIREBASE_KEY,
+    authDomain: AUTH_DOMAIN,
+    databaseURL: DATABASE_URL,
+    projectId: PROJECT_ID,
+    storageBucket: STORAGE_BUCKET,
+    messagingSenderId: MESSAGE_SENDER_ID
+  };
+  firebase.initializeApp(config);
+};
 
 /**
  *
@@ -38,8 +56,8 @@ export default class Login extends React.Component {
    * @description Invoked immediately after a component is mounted
    * @return {void}
    */
-  componentDidMount() {
-    this.firebaseInit();
+  componentWillMount() {
+    firebaseInit();
     const token = localStorage.getItem('accessToken');
     if (token) {
       this.setState({
@@ -50,25 +68,8 @@ export default class Login extends React.Component {
   }
 
   /**
-   * @description Fire base Initialization
-   * @memberOf Login
-   * @returns {void}
-   */
-  firebaseInit() {
-    const config = {
-      apiKey: FIREBASE_KEY,
-      authDomain: AUTH_DOMAIN,
-      databaseURL: DATABASE_URL,
-      projectId: PROJECT_ID,
-      storageBucket: STORAGE_BUCKET,
-      messagingSenderId: MESSAGE_SENDER_ID
-    };
-    firebase.initializeApp(config);
-  }
-
-
-  /**
-   * @returns {null}
+   * @description login user with firebase google login
+   * @returns {null} null
    * @memberOf Login
    */
   googleLogin() {
@@ -101,8 +102,7 @@ export default class Login extends React.Component {
 
   /**
    * Logs user out
-   * @returns null
-   * @param event
+  * @returns {null} null
    */
   logOut() {
     localStorage.removeItem('accessToken');
@@ -116,7 +116,7 @@ export default class Login extends React.Component {
 
   /**
    * @description  Show the Login Component
-   * @returns {JSX}
+   * @returns {JSX} jsx for the login component
    * @memberOf Login
    */
   loginPage() {
@@ -133,7 +133,8 @@ export default class Login extends React.Component {
           <div className="intro-message">
             <h1>Welcome to Hopeaz news Feed Application</h1>
             <h5>
-              Please Login with your google account to view news from over 60 sources
+              Please Login with your google account
+              to view news from over 60 sources
             </h5>
 
             <button className="gplus btnz" onClick={this.googleLogin}>
@@ -148,7 +149,7 @@ export default class Login extends React.Component {
 
 
   /**
-   * @returns {JSX}
+   * @returns {JSX} login page
    * @memberOf Login
    */
   render() {

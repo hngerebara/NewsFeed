@@ -51,10 +51,12 @@
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "verbose": true,
+    "globals": {
+      "NEWSAPI_KEY": "ngggg"
+    },
     "collectCoverageFrom": [
       "**/app/**.{js,jsx}",
       "!**/node_modules/**",
-      "!**/app/components/Login.jsx",
       "!**/app/index.jsx"
     ],
     "transform": {

@@ -1,13 +1,14 @@
 import React from 'react';
-import Share from '../utils/share';
 import PropTypes from 'prop-types';
+import Share from '../utils/share';
+
 
 const isoDate = require('iso-date');
 
 /**
  * Class to hold each article item from any source selected.
  * @extends React.Component
- * @param {props} item.url, item.title
+ * @param {Object} props - Data about this article like url, headline etc.
  * @return {*} returns to the parent component - Articles
  */
 const ArticleItem = (props) => {
@@ -24,6 +25,7 @@ const ArticleItem = (props) => {
   if (imageSource !== null && imageSource !== undefined && imageSource !== '') {
     image = [
       <img
+        alt=""
         key={props.item.url}
         className="article-image"
         src={imageSource}
@@ -36,7 +38,7 @@ const ArticleItem = (props) => {
     <article>
       <div className="col-lg-12">
         <h2>
-          <a href={props.item.url} target="_blank">
+          <a href={props.item.url} target="_blank" rel="noopener noreferrer">
             {props.item.title}
           </a>
         </h2>

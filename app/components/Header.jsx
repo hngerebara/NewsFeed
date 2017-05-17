@@ -6,13 +6,10 @@ import NavBar from './Header/Nav';
  * @description Header navigation component
  */
 
-const Header = (props) => {
-  return (
-    <div>
-      <NavBar logout={props.logout} />
-    </div>
-  );
-};
+const Header = props => (
+  <div>
+    <NavBar logout={props.logout} />
+  </div>);
 
 
 Header.propTypes = {
