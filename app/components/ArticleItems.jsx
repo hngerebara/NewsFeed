@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Share from '../utils/share';
 
-
 const isoDate = require('iso-date');
 
 /**
  * Class to hold each article item from any source selected.
  * @extends React.Component
  * @param {Object} props - Data about this article like url, headline etc.
- * @return {*} returns to the parent component - Articles
+ * @return {Component} - returns a Component to the parent Component, Articles.
  */
 const ArticleItem = (props) => {
   let publishedAt = props.item.publishedAt;
@@ -22,7 +21,7 @@ const ArticleItem = (props) => {
     publishedAt = '';
   }
 
-  if (imageSource !== null && imageSource !== undefined && imageSource !== '') {
+  if (imageSource && imageSource !== '') {
     image = [
       <img
         alt=""
@@ -61,7 +60,6 @@ const ArticleItem = (props) => {
   );
 };
 
-
 ArticleItem.propTypes = {
   item: PropTypes.shape({
     url: PropTypes.string,
@@ -72,6 +70,5 @@ ArticleItem.propTypes = {
     publishedAt: PropTypes.string
   }).isRequired
 };
-
 
 export default ArticleItem;
