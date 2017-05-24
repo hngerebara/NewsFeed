@@ -1,6 +1,6 @@
 import React from 'react';
 import SourceStore from '../stores/SourceStore';
-import SourceItem from './SourceItems';
+import SourceItem from './SourceItem';
 import NewsActions from '../actions/NewsActions';
 import Articles from '../components/Articles';
 

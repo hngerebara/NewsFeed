@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import ArticleItem from './ArticleItems';
+import ArticleItem from './ArticleItem';
 import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
 

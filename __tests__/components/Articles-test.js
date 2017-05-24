@@ -2,6 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Articles from '../../app/components/Articles';
+import ArticleItem from '../../app/components/ArticleItem';
 
 jest.dontMock('../../app/components/Articles');
 
@@ -36,3 +37,31 @@ describe('Displaying Articles', () => {
     expect(Articles.prototype.onSort).toExist;
   });
 });
+
+describe('Displaying ArticlesItem', () => {
+  const index = { sourceName: 'cnn' };
+  const item = {
+    title: 'donal trump',
+    desciption: 'he won the election',
+    publishedate: '2017-05-01'
+  };
+  const wrap = shallow(
+    <ArticleItem key={[index]} index={index} item={item} />
+  );
+  it('renders 1 <ArticleItem/> component', () => {
+    expect(
+      wrap.containsAnyMatchingElements([
+        <h4>{item.description}</h4>,
+        <h5>Published: {item.publisheddate}</h5>
+      ])
+    ).toBeDefined();
+  });
+
+  it('Articles component to have 1 articles tag', () => {
+    expect(wrap.find('article')).toHaveLength(1);
+  });
+  it('articles component to have 4label tags', () => {
+    expect(wrap.find('div')).toHaveLength(4);
+  });
+});
+

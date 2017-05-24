@@ -4,7 +4,6 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants';
 import EventConstants from '../constants/EventConstants';
 
-// Define the Source store as an empty array
 const sources = {
   list: [],
   filterlist: []
@@ -32,7 +31,6 @@ const SourceStore = ObjectAssign({}, EventEmitter.prototype, {
   }
 });
 
-// Store registers with dispatcher to handle actions.
 AppDispatcher.register((payload) => {
   switch (payload.actionType) {
     case NewsConstants.GET_NEWS_SOURCES:

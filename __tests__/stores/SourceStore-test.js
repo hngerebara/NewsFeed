@@ -30,12 +30,6 @@ describe('Sources Store', () => {
   test('check if there is a CLick listener method',
   () =>
     expect(SourceStore.addClickListener).toExist);
-
-  // it('should receive sources from Dispatcher', () => {
-  //   const actual = SourceStore.getAll();
-  //   const expected = sources;
-  //   expect(actual).toEqual(expected);
-  // });
 });
 
 

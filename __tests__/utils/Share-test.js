@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Share from '../app/utils/share';
+import Share from '../../app/utils/Share';
 
-jest.dontMock('../app/utils/share');
 
 const wrapper = shallow(<Share />);
 describe('test for share componet', () => {
