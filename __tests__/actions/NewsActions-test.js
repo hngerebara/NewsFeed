@@ -4,7 +4,6 @@ import NewsActions from '../../app/actions/NewsActions';
 import AppDispatcher from '../../app/dispatcher/AppDispatcher';
 import NewsConstants from '../../app/constants/NewsConstants';
 
-
 describe('Get Articles from api', () => {
   let getNewsArticles;
 
@@ -19,7 +18,7 @@ describe('Get Articles from api', () => {
   });
 });
 
-describe('Get Articles from api', () => {
+describe('Dispatcher for Article', () => {
   let dispatchSpy;
 
   beforeEach(() => {

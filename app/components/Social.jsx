@@ -20,7 +20,7 @@ const LinkedinIcon = generateShareIcon('linkedin');
 
 /**
  * @description share element
- * @param {object} props input for component
+ * @param {Object} props input for component
  * @returns {*} element to be rendered
  */
 function Social(props) {

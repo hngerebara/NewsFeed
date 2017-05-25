@@ -8,7 +8,7 @@ import NewsConstants from '../../app/constants/NewsConstants';
 describe('Get Sources from api', () => {
   let getNewsSources;
   beforeEach(() => {
-    jest.mock('superagent', () => mocksuperagent);    
+    jest.mock('superagent', () => mocksuperagent);
     getNewsSources = sinon.spy();
   });
 
@@ -19,11 +19,11 @@ describe('Get Sources from api', () => {
 });
 
 
-describe('Get Sources from api', () => {
+describe('Dispatcher for sources', () => {
   let dispatchSpy;
 
   beforeEach(() => {
-    jest.mock('superagent', () => mocksuperagent);    
+    jest.mock('superagent', () => mocksuperagent);
     dispatchSpy = sinon.spy(AppDispatcher, 'dispatch');
   });
 

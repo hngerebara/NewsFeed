@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
     @overview - NewsFeed Application that consumes
     www.newsapi.org api to display news sources based on selction

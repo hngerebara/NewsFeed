@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { shallow } from 'enzyme';
 import Articles from '../../app/components/Articles';

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Social from '../utils/Social';
+import Social from '../components/Social';
 
 const isoDate = require('iso-date');
 
 /**
  * Class to hold each article item from any source selected.
- * @extends React.Component
  * @param {Object} props - Data about this article like url, headline etc.
  * @return {Component} - returns a Component to the parent Component, Articles.
  */

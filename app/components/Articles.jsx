@@ -12,7 +12,8 @@ import NewsActions from '../actions/NewsActions';
 export default class Articles extends React.Component {
   /**
    * Creates an instance of Articles.
-   * @param {any} props
+   * @constructor
+   * @param {object} props
    * @memberOf Articles
    */
   constructor(props) {
@@ -42,7 +43,7 @@ export default class Articles extends React.Component {
   }
 
   /**
-   * @param {any} event
+   * @param {Event} event
    * @memberOf Articles
    * @returns{null} null
    */

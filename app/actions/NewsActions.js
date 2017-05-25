@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import request from 'superagent';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants';
@@ -8,7 +7,6 @@ import NewsConstants from '../constants/NewsConstants';
  * @returns {object}
  */
 const NewsActions = {
-
    /**
    * @description Action defined to get Sources
    * @returns {Array} retuns an array of objects
@@ -31,7 +29,6 @@ const NewsActions = {
   },
 
   /**
-   *
    * @description Action defined to get articles
    * @param {string} source
    * @param {string} sortBy

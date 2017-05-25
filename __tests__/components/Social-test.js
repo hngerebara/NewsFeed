@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Social from '../../app/utils/Social';
+import Social from '../../app/components/Social';
 
 const wrapper = shallow(<Social />);
 describe('test for Social componet', () => {
