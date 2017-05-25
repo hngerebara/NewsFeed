@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
     @overview - NewsFeed Application that consumes
     www.newsapi.org api to display news sources based on selction
@@ -80,7 +79,6 @@ export default class Login extends React.Component {
         const token = result.credential.accessToken;
         const user = result.user;
         localStorage.setItem('accessToken', token);
-        // Login the user if no errors found
         this.setState({
           loggedIn: true,
           user

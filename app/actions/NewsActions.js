@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import request from 'superagent';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import NewsConstants from '../constants/NewsConstants';
@@ -8,7 +7,10 @@ import NewsConstants from '../constants/NewsConstants';
  * @returns {object}
  */
 const NewsActions = {
-  // Action to get News Articles
+   /**
+   * @description Action defined to get Sources
+   * @returns {Array} retuns an array of objects
+   */
   getNewsSources: () => {
     request
       .get('https://newsapi.org/v1/sources')
@@ -27,10 +29,9 @@ const NewsActions = {
   },
 
   /**
-   *
    * @description Action defined to get articles
-   * @param {any} source
-   * @param {any} sortBy
+   * @param {string} source
+   * @param {string} sortBy
    * @returns {Array} retuns an array of objects
    */
   getNewsArticles(source, sortBy) {

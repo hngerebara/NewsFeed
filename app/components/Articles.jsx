@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import ArticleItem from './ArticleItems';
+import ArticleItem from './ArticleItem';
 import NewsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
 
@@ -12,7 +12,8 @@ import NewsActions from '../actions/NewsActions';
 export default class Articles extends React.Component {
   /**
    * Creates an instance of Articles.
-   * @param {any} props
+   * @constructor
+   * @param {object} props
    * @memberOf Articles
    */
   constructor(props) {
@@ -42,7 +43,7 @@ export default class Articles extends React.Component {
   }
 
   /**
-   * @param {any} event
+   * @param {Event} event
    * @memberOf Articles
    * @returns{null} null
    */

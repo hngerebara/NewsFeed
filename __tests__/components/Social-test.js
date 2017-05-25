@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Share from '../app/utils/share';
+import Social from '../../app/components/Social';
 
-jest.dontMock('../app/utils/share');
-
-const wrapper = shallow(<Share />);
-describe('test for share componet', () => {
+const wrapper = shallow(<Social />);
+describe('test for Social componet', () => {
   it('the component should exist', () => {
     expect(wrapper).toExist;
   });

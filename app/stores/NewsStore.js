@@ -4,12 +4,10 @@ import NewsConstants from '../constants/NewsConstants';
 import EventConstants from '../constants/EventConstants';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
-// Define the Articles store as an empty array
 const articles = {
   list: [],
 };
 
-// Define the Store with emitter to listen for change
 const NewsStore = ObjectAssign({}, EventEmitter.prototype, {
   addChangeListener(cb) {
     this.on(EventConstants.CHANGE_EVENT, cb);
@@ -24,7 +22,6 @@ const NewsStore = ObjectAssign({}, EventEmitter.prototype, {
   }
 });
 
-// Store registers with dispatcher to handle actions.
 AppDispatcher.register((payload) => {
   switch (payload.actionType) {
     case NewsConstants.GET_NEWS_ARTICLE:

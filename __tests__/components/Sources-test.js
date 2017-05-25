@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Sources from '../../app/components/Sources';
-import SourceItem from '../../app/components/SourceItems';
+import SourceItem from '../../app/components/SourceItem';
 import Articles from '../../app/components/Articles';
 import AppDispatcher from '../../app/dispatcher/AppDispatcher';
 import NewsConstants from '../../app/constants/NewsConstants';
@@ -110,5 +109,17 @@ describe('Displaying Sources and Articles', () => {
       onclick={() => {}}
     />);
     expect(wrapper.props().value).toEqual('abc-news-au');
+  });
+});
+
+describe('SourceItem Component', () => {
+  it('Component should render as expected', () => {
+    const wrapper = shallow(
+      <SourceItem
+        onclick={() => {}}
+        value={'value'}
+        name={'name'}
+      />);
+    expect(wrapper.find('option')).toHaveLength(1);
   });
 });
