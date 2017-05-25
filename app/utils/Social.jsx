@@ -23,7 +23,7 @@ const LinkedinIcon = generateShareIcon('linkedin');
  * @param {object} props input for component
  * @returns {*} element to be rendered
  */
-function Share(props) {
+function Social(props) {
   const shareUrl = props.share;
   const title = props.title;
 
@@ -83,13 +83,13 @@ function Share(props) {
   );
 }
 
-export default Share;
-Share.propTypes = {
+export default Social;
+Social.propTypes = {
   share: PropTypes.string,
   title: PropTypes.string
 };
 
-Share.defaultProps = {
+Social.defaultProps = {
   share: 'yahoo.com',
   title: 'yahoo'
 };

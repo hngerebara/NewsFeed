@@ -58,7 +58,8 @@
       "**/app/**.{js,jsx}",
       "!**/node_modules/**",
       "!**/app/components/Login.jsx",
-      "!**/app/index.jsx"
+      "!**/app/index.jsx",
+      "!**/app/testData.js"
     ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Share from '../utils/share';
+import Social from '../utils/Social';
 
 const isoDate = require('iso-date');
 
@@ -49,8 +49,8 @@ const ArticleItem = (props) => {
           <h4>Author: {props.item.author}</h4>
           <h5>Published: {publishedAt}</h5>
           <div className="row">
-            <Share
-              share={`${props.item.url}`}
+            <Social
+              Social={`${props.item.url}`}
               title={`${props.item.title}`}
             />
           </div>

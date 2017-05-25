@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-expressions */
 import SourceStore from '../../app/stores/SourceStore';
 import AppDispatcher from '../../app/dispatcher/AppDispatcher';
 import NewsConstants from '../../app/constants/NewsConstants';
+import { sources } from '../../__mocks__/testData';
 
 jest.dontMock('../../app/dispatcher/AppDispatcher');
 jest.dontMock('../../app/stores/SourceStore');
@@ -49,17 +49,6 @@ describe('source store', () => {
 });
 
 describe('Source store', () => {
-  const sources = [
-    {
-      country: 'au',
-      description: "Australia's most trusted source of local more.",
-      id: 'abc-news-au',
-      language: 'en,',
-      name: 'ABC News (AU)',
-      sortBysAvailable: ['top']
-    },
-  ];
-
   it('should receive some fetched sources from Dispatcher', () => {
     AppDispatcher.dispatch({
       actionType: NewsConstants.GET_NEWS_SOURCES,

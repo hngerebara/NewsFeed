@@ -11,7 +11,6 @@ const Header = props => (
     <NavBar logout={props.logout} />
   </div>);
 
-
 Header.propTypes = {
   logout: PropTypes.func.isRequired
 };

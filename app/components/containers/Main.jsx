@@ -18,7 +18,6 @@ const Main = props => (
     <Footer />
   </div>);
 
-
 Main.propTypes = {
   logout: PropTypes.func.isRequired
 };

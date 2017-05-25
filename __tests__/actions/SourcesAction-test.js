@@ -1,32 +1,36 @@
 import sinon from 'sinon';
-import request from 'superagent';
+import mocksuperagent from '../../__mocks__/superagent';
+import NewsActions from '../../app/actions/NewsActions';
+import AppDispatcher from '../../app/dispatcher/AppDispatcher';
+import NewsConstants from '../../app/constants/NewsConstants';
 
-jest.dontMock('../../app/actions/NewsActions');
 
-let getNewsSources;
 describe('Get Sources from api', () => {
+  let getNewsSources;
   beforeEach(() => {
+    jest.mock('superagent', () => mocksuperagent);    
     getNewsSources = sinon.spy();
-    const stubRequest = {
-      set() {
-        return this;
-      },
-      query() {
-        return this;
-      },
-      end() {
-        return this;
-      }
-    };
-    sinon.stub(request, 'get').returns(stubRequest);
-    getNewsSources = sinon.stub(stubRequest, 'end');
-  });
-  afterEach(() => {
-    getNewsSources.restore();
   });
 
   it('calls the success callback', () => {
     getNewsSources();
     expect(getNewsSources.callCount).toEqual(1);
+  });
+});
+
+
+describe('Get Sources from api', () => {
+  let dispatchSpy;
+
+  beforeEach(() => {
+    jest.mock('superagent', () => mocksuperagent);    
+    dispatchSpy = sinon.spy(AppDispatcher, 'dispatch');
+  });
+
+  it('should dispatch news sources', () => {
+    NewsActions.getNewsSources('cnn', 'top');
+    expect(dispatchSpy.called).toEqual(true);
+    const [{ actionType }] = dispatchSpy.getCall(0).args;
+    expect(actionType).toEqual(NewsConstants.GET_NEWS_SOURCES);
   });
 });
